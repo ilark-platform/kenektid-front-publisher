@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>커넥티드 로그인</title>
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/icofont.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <script src="assets/js/function.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="l-grid">
+            <section class="account">
+                <div class="account__header">
+                    <div class="logo">
+                        <h1 class="logo__image"><img src="./assets/img/logo.png" alt="KENEKTID"></h1>
+                        <span class="logo__title">KENEKTID BOOKSTORE</span>  
+                    </div>
+                </div>
+                <div class="account__body">
+                    <form class="form">
+                        <fieldset>
+                            <div class="field-group">
+                                <label for="email" class="field-group__label field-group__label--blind">이메일</label>
+                                <input type="email" name="email" class="field-group__input" placeholder="이메일 주소">
+                                <!--<span class="field-group__help field-group__help--error">올바른 이메일의 형식으로 입력해 주세요.</span>-->
+                            </div>
+                            <div class="field-group">
+                                <label for="password" class="field-group__label field-group__label--blind">비밀번호</label>
+                                <input type="password" name="password" class="field-group__input" placeholder="비밀번호">
+                                <!--<span class="field-group__help field-group__help--error">비밀번호가 다릅니다.</span>-->
+                            </div>
+                            <div class="field-group">
+                                <div class="checkbox">
+                                    <label class="checkbox__wrapper">
+                                        <span class="checkbox__title">로그인 상태 유지</span>
+                                        <input type="checkbox" class="checkbox--hidden checkbox--primary" checked="checked" />
+                                        <div class="checkbox--show"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="field-group">
+                                <button type="submit" class="btn btn--full btn--large btn--primary">로그인</button>
+                            </div>
+                        </fieldset>    
+                    </form>
+                </div>
+                <div class="account__bottom">
+                    <a href="./signup_1.html" class="account__link">회원가입</a>
+                    <a href="./searchpassword_1.html" class="account__link">비밀번호 재설정</a>
+                </div>
+            </section>
+            
+        </div>
+    </div>
+</body>
+</html>

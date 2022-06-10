@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>출판사 회원가입</title>
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/icofont.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="assets/js/function.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="l-grid l-grid--height-auto">
+                <section class="account">
+                    <div class="account__header">
+                        <div class="logo">
+                            <h1 class="logo__image"><img src="./assets/img/logo.png" alt="KENEKTID"></h1>
+                            <span class="logo__title">KENEKTID BOOKSTORE</span>  
+                        </div>
+                        <h2 class="account__title account__title--small account__title--aling-center">출판사 회원가입</h2>
+                    </div>
+                    <div class="account__body">
+                        <form class="form">
+                            <fieldset>
+                                <legend>출판사 회원가입</legend>
+                                <div class="field-group">
+                                    <div class="photo-upload">
+                                        <div class="photo-upload__form">
+                                            <input
+                                                type="file"
+                                                @change="previewThumbnail"
+                                                name="photo-upload-button"
+                                                id="photo-upload-button"
+                                                accept="image/*"
+                                                class="photo-upload__input-file"
+                                            >
+                                            <label for="photo-upload-button">프로필 이미지</label>
+                                        </div>
+                                        <div class="photo-upload__image-preview" v-if="imageData.length > 0">
+                                            <img class="photo-upload__img" :src="imageData">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field-group">
+                                    <label for="email" class="field-group__label">아이디(이메일)<em class="icon-required">*</em></label>
+                                    <input type="email" name="email" class="field-group__input" placeholder="이메일 주소를 입력해주세요" required>
+                                    <span class="field-group__help field-group__help--error">중복된 이메일 주소입니다.</span>
+                                </div>
+                                <div class="field-group">
+                                    <label for="password" class="field-group__label">비밀번호<em class="icon-required">*</em></label>
+                                    <input type="password" name="password" class="field-group__input" placeholder="비밀번호" required>
+                                    <span class="field-group__help">영문, 숫자, 특수문자를 조합하여 8~16자로 입력해주세요.</span>
+                                </div>
+                                <div class="field-group">
+                                    <label for="password2" class="field-group__label">비밀번호 확인<em class="icon-required">*</em></label>
+                                    <input type="password" name="password2" class="field-group__input" placeholder="비밀번호를 다시 입력해주세요" required>
+                                    <span class="field-group__help field-group__help--error">비밀번호가 다릅니다.</span>
+                                </div>
+                                <div class="field-group">
+                                    <label for="name" class="field-group__label">이름<em class="icon-required">*</em></label>
+                                    <input type="text" name="name" class="field-group__input" placeholder="이름을 입력해주세요" required>
+                                    <span class="field-group__help field-group__help--error">필수 입력 항목입니다.</span>
+                                </div>
+                                <div class="field-group">
+                                    <label for="phone" class="field-group__label">휴대전화<em class="icon-required">*</em></label>
+                                    <input type="tel" name="phone" class="field-group__input" pattern="[0-9]*" placeholder="- 없이 숫자만 입력해주세요" required>
+                                    <span class="field-group__help field-group__help--error">필수 입력 항목입니다.</span>
+                                </div>
+                                <div class="field-group">
+                                    <span class="field-group__label">주소지<em class="icon-required">*</em></span>
+                                    <!-- 다음 주소 검색 이전 { -->
+                                    <div v-if="addr1 =='' || addr1 == null">
+                                        <button type="button" class="btn btn--full btn--bordered-primary mgt0" @click="showApi">주소검색 <i class="icofont-search-1"></i></button>
+                                    </div>
+                                    <!-- } 주소 검색 이전 -->
+                                    
+                                    <!-- 다음 주소 검색 후 { -->
+                                    <div v-else>
+                                        <div class="field-address">
+                                            <div class="field-group__input">{{ zip }} {{ addr1 }}</div>
+                                            <button type="button" class="btn btn btn--bordered-primary" @click="showApi"><i class="icofont-search-1"></i></button>
+                                        </div>
+                                        <input type="text" name="phone" class="field-group__input" placeholder="나머지 주소를 입력해주세요" autocomplete="off" required>
+                                        <span class="field-group__help field-group__help--error">주소지를 입력해주세요.</span>
+                                    </div>
+                                    <!-- } 다음 주소 검색 후 -->
+                                </div>
+                                <div class="field-group">
+                                    <label for="homepage" class="field-group__label">홈페이지/SNS</label>
+                                    <input type="text" name="homepage" class="field-group__input" placeholder="URL 주소를 입력해주세요">
+                                </div>
+                                
+                                <div class="divider">
+                                    <span>정산정보입력</span>
+                                </div>
+                                <div class="field-group">
+                                    <label for="registration_number" class="field-group__label">주민등록번호<em class="icon-required">*</em></label>
+                                    <input type="text" name="registration_number" class="field-group__input" placeholder="- 없이 숫자만 입력해주세요" required>
+                                </div>
+                                <div class="field-group">
+                                    <label for="bank" class="field-group__label">은행<em class="icon-required">*</em></label>
+                                    <div class="select-dropdown" :data-value="value" :data-list="list">
+                                        <div class="select-dropdown__inner" :class="{ expanded : drop_visible }" @click="drop_toggle()">
+                                            <div class="select-dropdown__label">
+                                                <span>{{ value }}</span>
+                                            </div>
+                                            <div class="select-dropdown__arrow"></div>
+                                            <div :class="{ hidden : !drop_visible, drop_visible }">
+                                                <ul class="select-dropdown__list">
+                                                    <li class="select-dropdown__item" :class="{ current : item === value }" v-for="item in list" @click="select(item)">{{ item }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                <div class="field-group">
+                                    <label for="account_holder" class="field-group__label">예금주<em class="icon-required">*</em></label>
+                                    <input type="text" name="account_holder" class="field-group__input" placeholder="한글로 공백없이 입력해주세요" required>
+                                </div>
+                                <div class="field-group">
+                                    <label for="account_number" class="field-group__label">계좌번호<em class="icon-required">*</em></label>
+                                    <input type="text" name="account_number" class="field-group__input" placeholder="- 없이 숫자만 입력해주세요" required>
+                                </div>
+
+
+                                <div class="divider">
+                                    <span>서비스 정책</span>
+                                </div>
+                                <div class="field-group">
+                                    <div class="checkbox">
+                                        <label class="checkbox__wrapper">
+                                            <span class="checkbox__title checkbox__title--large">전체 동의합니다.</span>
+                                            <input type="checkbox" name="agree_allcheck" value='selectall' class="checkbox--hidden checkbox--primary">
+                                            <div class="checkbox--show"></div>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="checkbox">
+                                        <label class="checkbox__wrapper">
+                                            <span class="checkbox__title">[필수] KENEKTID 이용약관 동의</span>
+                                            <input type="checkbox" name="agree" class="checkbox--hidden checkbox--primary">
+                                            <div class="checkbox--show"></div>
+                                        </label>
+                                        <button type="button" class="checkbox__link" @click="showModal = true">약관보기</button>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="checkbox__wrapper">
+                                            <span class="checkbox__title">[필수] 개인정보수집 및 이용 동의</span>
+                                            <input type="checkbox" name="private1" class="checkbox--hidden checkbox--primary">
+                                            <div class="checkbox--show"></div>
+                                        </label>
+                                        <button type="button" class="checkbox__link" @click="showModal = true">약관보기</button>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="checkbox__wrapper">
+                                            <span class="checkbox__title">[필수] 개인정보 수집/이용/취급 위탁 동의</span>
+                                            <input type="checkbox" name="private2" class="checkbox--hidden checkbox--primary">
+                                            <div class="checkbox--show"></div>
+                                        </label>
+                                        <button type="button" class="checkbox__link" @click="showModal = true">약관보기</button>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="checkbox__wrapper">
+                                            <span class="checkbox__title">[선택] 이메일 마케팅 정보 수신 동의</span>
+                                            <input type="checkbox" name="marketing1" class="checkbox--hidden checkbox--primary">
+                                            <div class="checkbox--show"></div>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="checkbox__wrapper">
+                                            <span class="checkbox__title">[선택] 휴대폰 마케팅 정보 수신 동의</span>
+                                            <input type="checkbox" name="marketing2" class="checkbox--hidden checkbox--primary">
+                                            <div class="checkbox--show"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="field-group">
+                                    <button class="btn btn--full btn--large btn--primary" type="submit">회원가입</button>
+                                </div>
+                            </fieldset>    
+                        </form>
+                    </div>
+                    <div class="account__bottom account__bottom--justify-center">
+                        <a href="./login.html" class="account__link">로그인으로 돌아가기</a>
+                    </div>
+                </section>
+                
+            </div>
+        </div>
+
+        <!-- 모달 팝업 { -->
+        <transition name="modal">
+            <div class="modal" v-if="showModal">
+                <div class="modal__wrapper">
+                    <div class="modal__container">
+                        <div class="modal__header">
+                            이용약관 (필수)
+                        </div>
+                        <div class="modal__body modal__body--text-left">
+                            <div class="terms-box">
+                                제1조(목적)<br>
+                                이 약관은 주식회사 회사 회사(전자상거래 사업자)가 운영하는 인터넷사이트 회사(이하 "회사"라 한다)에서 제공하는 전자상거래 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 회사와 이용자의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.<br>
+                                *PC통신, 스마트폰 앱, 무선 등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는 한 준용합니다.
+                                <br><br>
+                    
+                                제2조(정의)<br>
+                                ① "회사"란 회사가 재화 또는 용역(이하 "재화 등"이라 함)을 이용자에게 제공하기 위하여 컴퓨터 등 정보통신설비를 이용하여 재화 등을 거래할 수 있도록 설정한 가상의 영업장을 말하며, 아울러 서비스를 운영하는 사업자의 의미로도 사용합니다.<br>
+                                ② "이용자"란 "회사"에 접속하여 이 약관에 따라 "회사"가 제공하는 서비스를 받는 회원 및 비회원을 말합니다.<br>
+                                ③ ‘회원’이라 함은 "회사"에 회원등록을 한 자로서, 계속적으로 "회사"가 제공하는 서비스를 이용할 수 있는 자를 말합니다.<br>
+                                ④ ‘비회원’이라 함은 회원에 가입하지 않고 "회사"가 제공하는 서비스를 이용하는 자를 말합니다.<br>
+                                ⑤ "휴면회원"이라 함은 "회사"의 ‘회원’중 1년 이상 서비스 이용 기록이 없는 자를 말합니다. 휴면 회원은 "회사"의 정책에 따라 서비스 이용이 제한 될 수 있으며, 다시 서비스를 이용하기 위하여는 거래 안전 등을 위하여 "회사"가 정하는 본인확인 절차 등을 이행하여야 올바른 ‘회원’의 서비스를 이용할 수 있습니다.
+                                <br><br>
+                    
+                                제3조 (약관 등의 명시와 설명 및 개정)<br>
+                                ① "회사"는 이 약관의 내용과 상호 및 대표자 성명, 영업소 소재지 주소(소비자의 불만을 처리할 수 있는 곳의 주소를 포함), 전화번호/모사전송번호/전자우편주소, 사업자등록번호, 통신판매업 신고번호, 개인정보 보호책임자 등을 이용자가 쉽게 알 수 있도록 회사의 초기 서비스화면(전면)에 게시합니다. 다만, 약관의 내용은 이용자가 연결화면을 통하여 볼 수 있도록 할 수 있습니다.<br>
+                                ② "회사"는 이용자가 약관에 동의하기에 앞서 약관에 정하여져 있는 내용 중 청약철회/배송책임/환불조건 등과 같은 중요한 내용을 이용자가 이해할 수 있도록 별도의 연결화면 또는 팝업화면 등을 제공하여 이용자의 확인을 구하여야 합니다.<br>
+                                ③ "회사"는「전자상거래 등에서의 소비자보호에 관한 법률」, 「약관의 규제에 관한 법률」, 「전자문서 및 전자거래기본법」, 「전자금융거래법」, 「전자서명법」, 「개인정보보호법」, 「방문판매 등에 관한 법률」, 「소비자기본법」 등 관련 법을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다.<br>
+                                ④ "회사"가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행약관과 함께 몰의 초기화면에 그 적용일자 7일 이전부터 적용일자 전일까지 공지합니다. 다만, 이용자에게 불리하게 약관내용을 변경하는 경우에는 최소한 30일 이상의 사전 유예기간을 두고 공지합니다. 이 경우 "회사"는 개정 전 내용과 개정 후 내용을 명확하게 비교하여 이용자가 알기 쉽도록 표시합니다.<br>
+                                ⑤ "회사"가 약관을 개정할 경우에는 그 개정약관은 그 적용일자 이후에 체결되는 계약에만 적용되고 그 이전에 이미 체결된 계약에 대해서는 개정 전의 약관조항이 그대로 적용됩니다. 다만 이미 계약을 체결한 이용자가 개정약관 조항의 적용을 받기를 원하는 뜻을 제4항에 의한 개정약관의 공지기간 내에 "회사"에 송신하여 "회사"의 동의를 받은 경우에는 개정약관 조항이 적용됩니다.<br>
+                                ⑥ 이 약관에서 정하지 아니한 사항과 이 약관의 해석에 관하여는 전자상거래 등에서의 소비자보호에 관한 법률, 약관의 규제 등에 관한 법률, 공정거래위원회가 정하는 전자상거래 등에서의 소비자 보호지침 및 관계법령 또는 상관례에 따릅니다.
+                            </div>                            
+                        </div>
+                        <div class="modal__footer">
+                            <button class="btn btn--full btn--small btn--primary" @click="showModal = false">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <!-- } 모달 팝업 -->
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                zip: '',
+                addr1: '',
+                addr2: '',
+                showModal: false,
+                value: '은행선택',
+                list: ["국민은행","신한은행","우리은행", "하나은행"],
+                drop_visible: false,
+                imageData: '',
+            },
+            methods: {
+                /* 프로필 이미지 */
+                previewThumbnail: function getPreview(event) {
+                    const input = event.target;
+                    if (input.files && input.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            this.imageData = e.target.result;
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                },
+    
+                /* 다음지도 테스트 */
+                showApi() {
+                    new window.daum.Postcode({
+                        oncomplete: (data) => {
+                            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+    
+                            // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+                            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                            let fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+                            let extraRoadAddr = ''; // 도로명 조합형 주소 변수
+    
+                            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                            if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                                extraRoadAddr += data.bname;
+                            }
+                            // 건물명이 있고, 공동주택일 경우 추가한다.
+                            if(data.buildingName !== '' && data.apartment === 'Y'){
+                            extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                            }
+                            // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                            if(extraRoadAddr !== ''){
+                                extraRoadAddr = ' (' + extraRoadAddr + ')';
+                            }
+                            // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+                            if(fullRoadAddr !== ''){
+                                fullRoadAddr += extraRoadAddr;
+                            }
+    
+                            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                            this.zip = data.zonecode; //5자리 새우편번호 사용
+                            this.addr1 = fullRoadAddr;
+                        }
+                    }).open()
+                },
+    
+                /* 커스텀 셀렉트박스 */
+                drop_toggle() {
+                    this.drop_visible = !this.drop_visible;
+                },
+                select(option) {
+                    this.value = option;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
