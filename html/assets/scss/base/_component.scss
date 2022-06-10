@@ -1,0 +1,518 @@
+@import '../abstracts/mixins';
+
+/* ------ FORM ----- */
+/* form 
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+*/
+
+.photo-upload {
+  height: auto;
+  margin-bottom: 3rem;
+  position: relative;
+  text-align: center;
+  width: 100%;  
+
+  &__input-file {
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 0.1px;
+    z-index: -1;
+
+    &:focus + label {
+      border-color: $color-primary;
+    }
+
+    & + label {
+      background: $color-gray-200;
+      border: 2px solid $color-gray-200;
+      border-radius: 50%;
+      color: $color-black;
+      display: inline-block;
+      font-size: 1.4rem;
+      font-weight: 500;
+      width: 176px;
+      height: 176px;
+      line-height: 176px;
+      text-align: center;
+      
+      &:hover,
+      &:focus {
+        background-color: $color-white;
+        border-color: $color-primary;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__image-preview {
+    @include position(absolute, $top: 0, $left: 0, $right: 0);
+    width: 176px;
+    height: 176px;
+    margin: 0 auto;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  &__img {
+    width: 176px;
+    height: 176px;
+    border: 2px solid $color-primary;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;    
+  }
+}
+
+
+.field-group {
+  position: relative;
+  width: 100%;
+  margin-top: 1.8rem;
+
+  &--half {
+    width: calc(50% - 6px);
+  }
+
+  &__label {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: $color-gray-900;
+    margin-bottom: 6px;
+
+    &--blind {
+      display: none;
+    }
+
+    & .icon-required {
+      display: inline-block;
+      padding-left: 3px;
+      color: $color-red;
+      font-size: 1.2rem;
+      vertical-align: top;
+    }
+  }
+  
+  &__input {
+    border: 1px solid $color-gray-100;
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 1.6rem;
+    outline: 0;
+    background-color: $color-gray-100;
+    border-radius: $border-radius; 
+    transition: all 0.3s;  
+
+    &--invalid {
+      border-color: $color-red;
+      box-shadow: $box-shadow-input;
+    }
+
+    &--disabled {
+      background-color: $color-gray-200;
+		  cursor: not-allowed;
+    }
+
+    /*
+    &:hover {
+      border-color: $color-primary;  
+    }
+    */
+    
+    &:focus {
+      border-color: $color-primary;
+      background-color: $color-white;
+      box-shadow: $box-shadow-input;
+    }
+  }
+
+  &__help {
+    display: block;
+    margin-top: 5px;
+    color: $color-black;
+    font-size: 1.2rem;
+    text-align: right;
+
+    &--error {
+      color: $color-red;  
+    }
+  }
+
+  // --- 주소지 검색 필드만 사용 ------------------------------------------------------------------
+  & .field-address {
+    position: relative;
+    margin-bottom: 6px;
+  }
+  & .field-address .field-group__input {
+    padding-right: 54px;
+  }
+  & .field-address .btn {
+    @include position(absolute, $top: 50%, $right: 0);
+    border: none;
+    background: transparent;
+    font-size: 1.8rem;
+    width: 54px;
+    height: 54px;
+    margin-top: 0;
+    transform: translateY(-50%);
+    z-index: 2;
+
+    & i {
+      padding-left: 0;
+    }
+  }
+}
+
+/* ------ CUSTOM CHECKBOX ----- */
+.checkbox {
+  position: relative;
+  margin-bottom: 1.4rem;
+
+  &__wrapper {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    padding-left: 34px;
+    height: 24px;
+  }
+
+  &__title {
+    display: inline-block;
+    font-size: 1.3rem;
+    color: $color-gray-700;
+    vertical-align: middle;
+
+    &--large {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: $color-black;
+    }
+  }
+
+  &__link {
+    @include position(absolute, $top: 50%, $right: 0);
+    font-size: 1.3rem;
+    color: $color-black;
+    z-index: 2;
+    transform: translateY(-50%);
+  }
+  
+  &--hidden {
+    display: none;
+    
+    &:checked {
+      display: block;
+    }
+  }
+  
+  &--show {
+    @include position(absolute, $top: 0, $left: 0);
+    height: 24px;
+    width: 24px;
+    border: 1px solid $color-gray-400;
+    border-radius: 50%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 3px;
+      width: 6px;
+      height: 11px;
+      border: solid $color-gray-400;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }  
+  }
+
+  &--hidden:checked ~ &--show:after {
+    display: block;
+  }
+
+  &--primary {
+    &:checked ~ .checkbox--show {
+      background-color: $color-primary;
+      border: none;
+
+      &::after {
+        border-color: $color-white; 
+      }
+    }
+    &:disabled ~ .checkbox--show {
+      background-color: $color-white;
+      //border: 1px solid $grey-100;
+      cursor: not-allowed;
+    }
+    &:checked:disabled ~ .checkbox--show {
+      background-color: $color-primary;
+      opacity: 0.6;
+      cursor: not-allowed;
+
+      &::after {
+        border-color: $color-white; 
+      }
+    }
+    
+  }
+}
+
+/* ------ CUSTOM SELECT ----- */
+.select-dropdown {
+  width: 100%;
+
+  &__inner {
+    position: relative;
+    border: 1px solid $color-gray-100;
+    background-color: $color-gray-100;
+    border-radius: $border-radius; 
+    z-index: 2;
+    transition: all 0.3s;  
+
+    &.expanded {
+      background-color: $color-white;
+      border-color: $color-primary;
+    }
+    
+  }
+  &__arrow {
+    position: absolute;
+    right: 20px;
+    top: 38%;
+    width: 10px;
+    height: 10px;
+    border-left: 1px solid #888;
+    border-top: 1px solid #888;
+    transform: rotateZ(-135deg);
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(.59,1.39,.37,1.01);
+
+    /*
+    &.expanded {
+      margin-top: 4px;
+      transform: rotateZ(45deg);
+    }
+    */
+  }
+
+  &__label {
+    display: block;
+    font-size: 1.4rem;
+    padding: 1.6rem;
+    color: $color-black;
+  }
+  
+  &__list {
+    position: absolute;
+    width: 100%;
+    margin-top: 1px;
+    font-size: 1.4rem;
+    border-radius: $border-radius;  
+    background-color: $color-white;
+    box-shadow: $box-shadow;
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  &__item {
+    padding: 1.2rem;
+    color: $color-gray-700;
+    
+    &:hover {
+      background-color: $color-gray-100;
+    }
+    
+  }
+  .current {
+    background-color: $color-gray-100;
+  }
+  .hidden {
+    visibility: hidden;
+  }
+  .drop_visible {
+    visibility: visible;    
+  }
+}
+
+
+
+/* ------ BUTTON ----- */
+$button-border-radius: 4px;
+$button-font-size: 1.6rem;
+$button-padding: 0.875em 1em;
+
+$button-base-color: #fff;
+$button-base-bg: #a1c4dd;
+$button-primary-bg: #0074c9;
+
+// --- mixins ------------------------------------------------------------------
+
+@mixin bem-button($name, $bg) {
+	.btn--#{$name} {
+		background-color: $bg;
+    border-color: $bg;
+		@include bem-button-hover($bg);
+	}
+}
+
+@mixin bem-button-hover($bg) {
+	&:hover {
+		background-color: lighten($bg, 5%);
+	}
+}
+
+@mixin bem-button-size($name, $font-size) {
+	.btn--#{$name} {
+		font-size: $font-size;
+	}
+}
+
+@mixin bem-button-bordered($name, $color) {
+	.btn--bordered-#{$name} {
+		background: $button-base-color;;
+		border-color: $color;
+		color: $color;
+
+		&:hover {
+			background: $button-base-color;
+			color: darken($color, 10%);
+			border-color: darken($color, 10%);
+		}
+	}
+}
+
+// --- button ------------------------------------------------------------------
+
+.btn {
+	color: $button-base-color;  
+	background-color: $button-base-bg;
+  padding: $button-padding;
+	display: inline-block;
+	text-decoration: none;
+	border-radius: $button-border-radius;
+	font-size: $button-font-size;
+  line-height: 1.4;
+  text-align: center;
+	border: 1px solid $button-base-color;
+  vertical-align: top;
+	cursor: pointer;
+	transition: background-color .2s, color .2s, border-color .2s;
+
+	@include bem-button-hover($button-base-bg);
+
+  &--full {
+    width: 100%;
+  }
+
+	&.is-disabled {
+		background-color: #ccc;
+		cursor: not-allowed;
+	}
+
+  & > i {
+    display: inline-block;
+    padding-left: 10px;
+  }
+}
+
+// --- button: sizes -----------------------------------------------------------
+
+@include bem-button-size('small', 1.2rem);
+@include bem-button-size('large', 1.8rem);
+
+// --- button: variants --------------------------------------------------------
+
+@include bem-button('primary', $button-primary-bg);
+
+// --- button: bordered --------------------------------------------------------
+
+@include bem-button-bordered('base', $button-base-bg);
+@include bem-button-bordered('primary', $button-primary-bg);
+
+
+
+
+/* ------ MODAL ----- */
+.modal {
+  @include position(fixed, $top: 0, $left: 0);
+  @include size(100%, 100%);
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  transition: opacity .3s ease;
+  
+  &__wrapper {
+    @include position(relative, $top: 50%, $left: 50%);
+    padding: 0 2rem;
+    transform: translate(-50%, -50%);
+  }
+  
+  &__container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem 3rem;
+    border-radius: 5px;
+    box-shadow: $box-shadow;
+    background-color: $color-white;
+    transition: all .3s ease;
+
+    &--large {
+      max-width: 800px;
+    }
+
+    &--small {
+      max-width: 300px;
+    }
+  }
+
+  &__header {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__body {
+    padding: 2rem 0;
+    font-size: 1.2rem;
+    color: $color-gray-700;
+    text-align: center;
+
+    &--text-left {
+      text-align: left;
+    }
+
+    & .terms-box {
+      font-size: 13px;
+      max-height: 360px;
+      overflow-y: auto;
+    }
+  }
+  
+  &__footer {
+    margin-top: 15px;
+  }
+  
+  /*
+  * The following styles are auto-applied to elements with
+  * transition="modal" when their visibility is toggled
+  * by Vue.js.
+  *
+  * You can easily play with the modal transition by editing
+  * these styles.
+  */
+  &-enter, &-leave-active {
+    opacity: 0;
+  }
+  
+  &-enter &__container,
+  &-leave-active &__container {
+    transform: scale(1.1);
+  }
+}
+

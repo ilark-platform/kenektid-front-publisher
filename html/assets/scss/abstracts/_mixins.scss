@@ -1,0 +1,38 @@
+/* color style */
+$color-primary: #0074c9;
+$color-secondary: #D7007F;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-red: #f00000;
+$color-gray-100: #f7f7f7;
+$color-gray-200: #e2e2e2;
+$color-gray-300: #dbdbdb;
+$color-gray-400: #cccccc;
+$color-gray-500: #b6b6b6;
+$color-gray-700: #707070;
+$color-gray-900: #3e3e3e;
+
+/* border, box-shadow style */
+$border: 1px solid rgba($color-gray-300, 1);
+$border-input: 1px solid rgba($color-primary, 1);
+$border-radius: 4px;
+$box-shadow: 0 5px 20px rgba($color-black, 0.2);
+$box-shadow-input: 0 3px 10px rgba($color-black, 0.1);
+
+
+
+$break-point: 800px;
+
+// Mixins
+@mixin position($position, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin size($width, $height: auto) {
+  width: $width;
+  height: $height;
+}

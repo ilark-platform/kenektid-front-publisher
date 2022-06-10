@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Archivo', 'NotoSansCJKkr';
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Archivo','NotoSansCJKkr';
+  font-size: 1.4rem;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: -0.0375em;
+  margin: 0;
+  word-break: keep-all;
+  overflow-x: hidden;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+em {
+  font-style: normal;
+}
+legend {
+  display: none;
+  font-size: 0;
+}
+fieldset,
+legend {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+input,
+select,
+textarea,
+button,
+a {
+  margin: 0;
+  border-width: 0;
+  background: none;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  border-radius: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+input,
+textarea {
+  &::placeholder {
+    color: #b6b6b6;
+  }
+}
+input:focus {
+  outline: none;
+}
+/*
+input[type=number] {
+  -moz-appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0;
+  }
+}
+
+.font-archivo {
+  font-family: 'Archivo';
+}
+.font-notosans {
+  font-family: 'NotoSansCJKkr';
+}
+*/

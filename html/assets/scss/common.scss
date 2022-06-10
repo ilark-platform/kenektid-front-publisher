@@ -1,0 +1,30 @@
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/layout';
+@import 'base/component';
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__link {
+      display: block;
+    }
+    
+    &__image {
+      width: 150px;
+      height: 66px;
+      
+      img {
+        width: 150px;
+        height: 66px;
+      }
+    }
+  
+    &__title {
+        color: $color-primary;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+}

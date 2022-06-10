@@ -1,0 +1,156 @@
+/* NotoSansCJKkr */
+@font-face {
+  font-family: 'NotoSansCJKkr';
+  font-weight: 100;
+  src: url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Thin.eot');
+  src: url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Thin.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Thin.woff2') format('woff2'),
+       url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Thin.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'NotoSansCJKkr';
+  font-weight: 300;
+  src: url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Light.eot');
+  src: url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Light.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Light.woff2') format('woff2'),
+       url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'NotoSansCJKkr';
+  font-weight: 400;
+  src: url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Regular.eot');
+  src: url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Regular.woff2') format('woff2'),
+       url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Regular.woff') format('woff'),
+       url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NotoSansCJKkr';
+  font-weight: 500;
+  src: url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Medium.eot');
+  src: url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Medium.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Medium.woff2') format('woff2'),
+       url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'NotoSansCJKkr';
+  font-weight: 700;
+  src: url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Bold.eot');
+  src: url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Bold.woff2') format('woff2'),
+       url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Bold.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'NotoSansCJKkr';
+  font-weight: 900;
+  src: url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Black.eot');
+  src: url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Black.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Black.woff2') format('woff2'),
+       url('../fonts/NotoSansCJKkr/NotoSansCJKkr-Black.woff') format('woff');
+}
+
+/* Archivo */
+@font-face {
+  font-family: 'Archivo';
+  font-weight: 100;
+  src: url('../fonts/Archivo/Archivo-Thin.eot');
+  src: url('../fonts/Archivo/Archivo-Thin.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Archivo/Archivo-Thin.woff2') format('woff2'),
+       url('../fonts/Archivo/Archivo-Thin.woff') format('woff'),
+       url('../fonts/Archivo/Archivo-Thin.ttf') format('truetype');
+       unicode-range:U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-weight: 200;
+  src: url('../fonts/Archivo/Archivo-ExtraLight.eot');
+  src: url('../fonts/Archivo/Archivo-ExtraLight.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Archivo/Archivo-ExtraLight.woff2') format('woff2'),
+       url('../fonts/Archivo/Archivo-ExtraLight.woff') format('woff'),
+       url('../fonts/Archivo/Archivo-ExtraLight.ttf') format('truetype');
+       unicode-range:U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-weight: 300;
+  src: url('../fonts/Archivo/Archivo-Light.eot');
+  src: url('../fonts/Archivo/Archivo-Light.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Archivo/Archivo-Light.woff2') format('woff2'),
+       url('../fonts/Archivo/Archivo-Light.woff') format('woff'),
+       url('../fonts/Archivo/Archivo-Light.ttf') format('truetype');
+       unicode-range:U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-weight: 400;
+  src: url('../fonts/Archivo/Archivo-Regular.eot');
+  src: url('../fonts/Archivo/Archivo-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Archivo/Archivo-Regular.woff2') format('woff2'),
+       url('../fonts/Archivo/Archivo-Regular.woff') format('woff'),
+       url('../fonts/Archivo/Archivo-Regular.ttf') format('truetype');
+       unicode-range:U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-weight: 500;
+  src: url('../fonts/Archivo/Archivo-Medium.eot');
+  src: url('../fonts/Archivo/Archivo-Medium.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Archivo/Archivo-Medium.woff2') format('woff2'),
+       url('../fonts/Archivo/Archivo-Medium.woff') format('woff'),
+       url('../fonts/Archivo/Archivo-Medium.ttf') format('truetype');
+       unicode-range:U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-weight: 600;
+  src: url('../fonts/Archivo/Archivo-SemiBold.eot');
+  src: url('../fonts/Archivo/Archivo-SemiBold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Archivo/Archivo-SemiBold.woff2') format('woff2'),
+       url('../fonts/Archivo/Archivo-SemiBold.woff') format('woff'),
+       url('../fonts/Archivo/Archivo-SemiBold.ttf') format('truetype');
+       unicode-range:U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-weight: 700;
+  src: url('../fonts/Archivo/Archivo-Bold.eot');
+  src: url('../fonts/Archivo/Archivo-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Archivo/Archivo-Bold.woff2') format('woff2'),
+       url('../fonts/Archivo/Archivo-Bold.woff') format('woff'),
+       url('../fonts/Archivo/Archivo-Bold.ttf') format('truetype');
+       unicode-range:U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-weight: 800;
+  src: url('../fonts/Archivo/Archivo-ExtraBold.eot');
+  src: url('../fonts/Archivo/Archivo-ExtraBold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Archivo/Archivo-ExtraBold.woff2') format('woff2'),
+       url('../fonts/Archivo/Archivo-ExtraBold.woff') format('woff'),
+       url('../fonts/Archivo/Archivo-ExtraBold.ttf') format('truetype');
+       unicode-range:U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-weight: 900;
+  src: url('../fonts/Archivo/Archivo-Black.eot');
+  src: url('../fonts/Archivo/Archivo-Black.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Archivo/Archivo-Black.woff2') format('woff2'),
+       url('../fonts/Archivo/Archivo-Black.woff') format('woff'),
+       url('../fonts/Archivo/Archivo-Black.ttf') format('truetype');
+       unicode-range:U+0041-005A, U+0061-007A, U+0030-0039;
+}
