@@ -21,7 +21,7 @@
                 <section class="account">
                     <div class="account__header">
                         <div class="logo">
-                            <h1 class="logo__image"><img src="./assets/img/logo.png" alt="KENEKTID"></h1>
+                            <h1 class="logo__image"><img src="assets/img/logo.png" alt="KENEKTID"></h1>
                             <span class="logo__title">KENEKTID BOOKSTORE</span>  
                         </div>
                         <h2 class="account__title account__title--small account__title--aling-center">출판사 회원가입</h2>
@@ -74,11 +74,6 @@
                                     <span class="field-group__help field-group__help--error">필수 입력 항목입니다.</span>
                                 </div>
                                 <div class="field-group">
-                                    <label for="company" class="field-group__label">출판사명<em class="icon-required">*</em></label>
-                                    <input type="text" name="company" class="field-group__input" placeholder="한글로 공백없이 입력해주세요" required>
-                                    <span class="field-group__help field-group__help--error">필수 입력 항목입니다.</span>
-                                </div>
-                                <div class="field-group">
                                     <span class="field-group__label">주소지<em class="icon-required">*</em></span>
                                     <!-- 다음 주소 검색 이전 { -->
                                     <div v-if="addr1 =='' || addr1 == null">
@@ -106,8 +101,8 @@
                                     <span>정산정보입력</span>
                                 </div>
                                 <div class="field-group">
-                                    <label for="business_number" class="field-group__label">사업자번호<em class="icon-required">*</em></label>
-                                    <input type="text" name="business_number" class="field-group__input" placeholder="- 없이 숫자만 입력해주세요" required>
+                                    <label for="registration_number" class="field-group__label">주민등록번호<em class="icon-required">*</em></label>
+                                    <input type="text" name="registration_number" class="field-group__input" placeholder="- 없이 숫자만 입력해주세요" required>
                                 </div>
                                 <div class="field-group">
                                     <label for="bank" class="field-group__label">은행<em class="icon-required">*</em></label>
@@ -193,7 +188,7 @@
                         </form>
                     </div>
                     <div class="account__bottom account__bottom--justify-center">
-                        <a href="./login.html" class="account__link">로그인으로 돌아가기</a>
+                        <a href="login.html" class="account__link">로그인으로 돌아가기</a>
                     </div>
                 </section>
                 
@@ -242,76 +237,76 @@
         <!-- } 모달 팝업 -->
     </div>
     <script>
-    new Vue({
-        el: "#app",
-        data: {
-            zip: '',
-            addr1: '',
-            addr2: '',
-            showModal: false,
-            value: '은행선택',
-			list: ["국민은행","신한은행","우리은행", "하나은행"],
-            drop_visible: false,
-            imageData: '',
-        },
-        methods: {
-            /* 프로필 이미지 */
-            previewThumbnail: function getPreview(event) {
-                const input = event.target;
-                if (input.files && input.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        this.imageData = e.target.result;
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                }
+        new Vue({
+            el: "#app",
+            data: {
+                zip: '',
+                addr1: '',
+                addr2: '',
+                showModal: false,
+                value: '은행선택',
+                list: ["국민은행","신한은행","우리은행", "하나은행"],
+                drop_visible: false,
+                imageData: '',
             },
-
-            /* 다음지도 테스트 */
-            showApi() {
-                new window.daum.Postcode({
-                    oncomplete: (data) => {
-                        // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-                        // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
-                        // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                        let fullRoadAddr = data.roadAddress; // 도로명 주소 변수
-                        let extraRoadAddr = ''; // 도로명 조합형 주소 변수
-
-                        // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                        // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                        if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                            extraRoadAddr += data.bname;
-                        }
-                        // 건물명이 있고, 공동주택일 경우 추가한다.
-                        if(data.buildingName !== '' && data.apartment === 'Y'){
-                        extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                        }
-                        // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                        if(extraRoadAddr !== ''){
-                            extraRoadAddr = ' (' + extraRoadAddr + ')';
-                        }
-                        // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
-                        if(fullRoadAddr !== ''){
-                            fullRoadAddr += extraRoadAddr;
-                        }
-
-                        // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                        this.zip = data.zonecode; //5자리 새우편번호 사용
-                        this.addr1 = fullRoadAddr;
+            methods: {
+                /* 프로필 이미지 */
+                previewThumbnail: function getPreview(event) {
+                    const input = event.target;
+                    if (input.files && input.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            this.imageData = e.target.result;
+                        };
+                        reader.readAsDataURL(input.files[0]);
                     }
-                }).open()
-            },
-
-            /* 커스텀 셀렉트박스 */
-            drop_toggle() {
-				this.drop_visible = !this.drop_visible;
-			},
-			select(option) {
-			    this.value = option;
-			}
-        }
-    });
+                },
+    
+                /* 다음지도 테스트 */
+                showApi() {
+                    new window.daum.Postcode({
+                        oncomplete: (data) => {
+                            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+    
+                            // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+                            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                            let fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+                            let extraRoadAddr = ''; // 도로명 조합형 주소 변수
+    
+                            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                            if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                                extraRoadAddr += data.bname;
+                            }
+                            // 건물명이 있고, 공동주택일 경우 추가한다.
+                            if(data.buildingName !== '' && data.apartment === 'Y'){
+                            extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                            }
+                            // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                            if(extraRoadAddr !== ''){
+                                extraRoadAddr = ' (' + extraRoadAddr + ')';
+                            }
+                            // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+                            if(fullRoadAddr !== ''){
+                                fullRoadAddr += extraRoadAddr;
+                            }
+    
+                            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                            this.zip = data.zonecode; //5자리 새우편번호 사용
+                            this.addr1 = fullRoadAddr;
+                        }
+                    }).open()
+                },
+    
+                /* 커스텀 셀렉트박스 */
+                drop_toggle() {
+                    this.drop_visible = !this.drop_visible;
+                },
+                select(option) {
+                    this.value = option;
+                }
+            }
+        });
     </script>
 </body>
 </html>

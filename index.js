@@ -2,7 +2,7 @@ const fs = require('fs')
 const jsdom = require('jsdom')
 const { JSDOM } = jsdom
 const dayjs = require('dayjs')
-const publishDir = './html/publish/'
+const publishDir = './html/'
 const menuDir = fs.readdirSync(publishDir)
 const htmlFiles = []
 
