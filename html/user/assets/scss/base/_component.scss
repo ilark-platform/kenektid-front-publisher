@@ -1,14 +1,11 @@
 @import '../abstracts/mixins';
 
+
 /* ------ FORM ----- */
-/* form 
 .form {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
+  display: block;
+  width: 100%;
 }
-*/
 
 .photo-upload {
   height: auto;
@@ -77,7 +74,7 @@
   margin-top: 1.8rem;
 
   &--half {
-    width: calc(50% - 6px);
+    width: calc(50% - 1.2rem);
   }
 
   &__label {
@@ -100,9 +97,9 @@
     }
   }
   
-  &__input {
-    border: 1px solid $color-gray-100;
+  &__input, &__textarea {
     width: 100%;
+    border: 1px solid $color-gray-100;
     font-size: 1.4rem;
     padding: 1.6rem;
     outline: 0;
@@ -115,8 +112,9 @@
       box-shadow: $box-shadow-input;
     }
 
-    &--disabled {
-      background-color: $color-gray-200;
+    &--disabled, &:disabled {
+      border: 1px solid $color-gray-300;
+      background-color: $color-gray-300;
 		  cursor: not-allowed;
     }
 
@@ -133,10 +131,14 @@
     }
   }
 
+  &__textarea {
+    height: 118px;
+  }
+
   &__help {
     display: block;
     margin-top: 5px;
-    color: $color-black;
+    color: $color-gray-500;
     font-size: 1.2rem;
     text-align: right;
 
@@ -146,14 +148,14 @@
   }
 
   // --- 주소지 검색 필드만 사용 ------------------------------------------------------------------
-  & .field-address {
+  .field-address {
     position: relative;
     margin-bottom: 6px;
   }
-  & .field-address .field-group__input {
+  .field-address .field-group__input {
     padding-right: 54px;
   }
-  & .field-address .btn {
+  .field-address .btn {
     @include position(absolute, $top: 50%, $right: 0);
     border: none;
     background: transparent;
@@ -168,7 +170,14 @@
       padding-left: 0;
     }
   }
+
+  @include mobile { 
+    &--half {
+      width: 100%;
+    }  
+  }
 }
+
 
 /* ------ CUSTOM CHECKBOX ----- */
 .checkbox {
@@ -263,12 +272,14 @@
   }
 }
 
+
 /* ------ CUSTOM SELECT ----- */
 .select-dropdown {
   width: 100%;
 
   &__inner {
     position: relative;
+    height: 50px;
     border: 1px solid $color-gray-100;
     background-color: $color-gray-100;
     border-radius: $border-radius; 
@@ -287,8 +298,8 @@
     top: 38%;
     width: 10px;
     height: 10px;
-    border-left: 1px solid #888;
-    border-top: 1px solid #888;
+    border-left: 1px solid $color-gray-500;
+    border-top: 1px solid $color-gray-500;
     transform: rotateZ(-135deg);
     transition-duration: 0.3s;
     transition-timing-function: cubic-bezier(.59,1.39,.37,1.01);
@@ -311,7 +322,6 @@
   &__list {
     position: absolute;
     width: 100%;
-    margin-top: 1px;
     font-size: 1.4rem;
     border-radius: $border-radius;  
     background-color: $color-white;
@@ -341,54 +351,193 @@
 }
 
 
+/* ------ 이미지 업로드 ----- */
+.regi-image {
+  padding: 1rem 0;
+
+  &__list {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;   
+  }
+
+  &__item {
+    flex: 0 0 auto;
+    position: relative;
+    @include size(154px, $height: 154px);
+    margin-right: 1rem;
+    background-color: $color-gray-100;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all .3s;
+
+    &--rep {
+      border: 2px solid #0074c9;
+      
+      &::after {
+        content: '대표';  
+        @include position(absolute, $bottom: 5px, $left: 5px);
+        padding: 0 7px;
+        font-size: 11px;
+        line-height: 20px;
+        border-radius: 20px;
+        color: $color-white;
+        background-color: $color-primary;
+        z-index: 1;
+      }
+    }
+
+    img {
+      @include size(100%, $height: 100%);  
+    }
+
+    .btn-delete {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include position(absolute, $top: 5px, $right: 5px);
+      @include size(23px, $height: 23px);
+      border-radius: 50%;
+      border: 1px solid $color-white;
+      background-color: $color-gray-900;
+      cursor: pointer;
+      overflow: hidden;
+      z-index: 2;
+      i {
+        color: $color-white;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &__label {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include size(154px, $height: 154px);
+    border: 2px dashed #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .3s;
+
+    i {
+      font-size: 3rem;
+      color: $color-primary;
+    }
+
+    &:hover {
+      background-color: $color-white; 
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+
+  @include tablet { 
+    /*브라우저 사이즈 1023px 이하일때*/
+    &__item {
+      @include size(106px, $height: 106px);
+    }
+
+    &__label {
+      @include size(106px, $height: 106px);
+    }
+  }
+}
+
+
+/* ------ 굿즈 업로드 ----- */
+.regi-goods {
+  padding: 1rem 0;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    margin-bottom: 1rem;   
+  }
+
+  &__item {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 8px;
+    background-color: rgba($color-primary, .05);
+    border: 1px solid rgba($color-primary, .1);
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    & + & {
+      margin-top: 8px;
+    }
+
+    .btn-delete {
+      @include position(absolute, $top: 10px, $right: 10px);
+      cursor: pointer;
+      overflow: hidden;
+      z-index: 2;
+      i {
+        color: $color-gray-600;
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__thumb {
+    @include size(86px, $height: 86px);
+
+    img {
+      @include size(100%, $height: 100%);
+      border-radius: $border-radius;  
+    }
+  }
+
+  &__content {
+    width: calc(100% - 106px);
+    padding-left: 2rem;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: $color-black;
+  }
+
+  &__description {
+    margin-top: 8px;
+    font-size: 1.3rem;
+    color: $color-gray-600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    span {
+      display: inline-block;
+      color: $color-black;
+      margin-right: 5px;
+    }
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 1023px 이하일때*/
+    &__title {
+      font-size: 1.4rem;
+    }
+    
+  }
+}
+
 
 /* ------ BUTTON ----- */
-$button-border-radius: 4px;
-$button-font-size: 1.6rem;
-$button-padding: 0.875em 1em;
-
-$button-base-color: #fff;
-$button-base-bg: #a1c4dd;
-$button-primary-bg: #0074c9;
-
-// --- mixins ------------------------------------------------------------------
-
-@mixin bem-button($name, $bg) {
-	.btn--#{$name} {
-		background-color: $bg;
-    border-color: $bg;
-		@include bem-button-hover($bg);
-	}
-}
-
-@mixin bem-button-hover($bg) {
-	&:hover {
-		background-color: lighten($bg, 5%);
-	}
-}
-
-@mixin bem-button-size($name, $font-size) {
-	.btn--#{$name} {
-		font-size: $font-size;
-	}
-}
-
-@mixin bem-button-bordered($name, $color) {
-	.btn--bordered-#{$name} {
-		background: $button-base-color;;
-		border-color: $color;
-		color: $color;
-
-		&:hover {
-			background: $button-base-color;
-			color: darken($color, 10%);
-			border-color: darken($color, 10%);
-		}
-	}
-}
-
 // --- button ------------------------------------------------------------------
-
 .btn {
 	color: $button-base-color;  
 	background-color: $button-base-bg;
@@ -403,7 +552,6 @@ $button-primary-bg: #0074c9;
   vertical-align: top;
 	cursor: pointer;
 	transition: background-color .2s, color .2s, border-color .2s;
-
 	@include bem-button-hover($button-base-bg);
 
   &--full {
@@ -411,13 +559,18 @@ $button-primary-bg: #0074c9;
   }
 
 	&.is-disabled {
+    border: 1px solid #ccc;
 		background-color: #ccc;
 		cursor: not-allowed;
+    pointer-events: none;
 	}
 
   & > i {
     display: inline-block;
-    padding-left: 10px;
+    
+    &.icofont-search-1 {
+      padding-left: 10px;
+    }   
   }
 }
 
@@ -429,13 +582,13 @@ $button-primary-bg: #0074c9;
 // --- button: variants --------------------------------------------------------
 
 @include bem-button('primary', $button-primary-bg);
+@include bem-button('gray', $button-gray-bg);
 
 // --- button: bordered --------------------------------------------------------
 
 @include bem-button-bordered('base', $button-base-bg);
 @include bem-button-bordered('primary', $button-primary-bg);
-
-
+@include bem-button-bordered('gray', $button-gray-bg);
 
 
 /* ------ MODAL ----- */
@@ -443,8 +596,18 @@ $button-primary-bg: #0074c9;
   @include position(fixed, $top: 0, $left: 0);
   @include size(100%, 100%);
   background: rgba(0, 0, 0, 0.7);
-  z-index: 1000;
+  z-index: 200;
   transition: opacity .3s ease;
+
+  &__close {
+    @include position(absolute, $top: 10px, $right: 6px);
+    color: $color-black;
+    z-index: 3;
+
+    i {
+      font-size: 3rem;
+    }
+  }
   
   &__wrapper {
     @include position(relative, $top: 50%, $left: 50%);
@@ -453,10 +616,11 @@ $button-primary-bg: #0074c9;
   }
   
   &__container {
+    position: relative;
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
-    padding: 2rem 3rem;
+    padding: 3rem;
     border-radius: 5px;
     box-shadow: $box-shadow;
     background-color: $color-white;
@@ -471,10 +635,21 @@ $button-primary-bg: #0074c9;
     }
   }
 
+  &__description {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-top: 1rem;
+  }
+
   &__header {
+    position: relative;
     font-size: 2.2rem;
     font-weight: 700;
     text-align: center;
+
+    &--text-left {
+      text-align: left;
+    }
   }
 
   &__body {
@@ -494,18 +669,12 @@ $button-primary-bg: #0074c9;
     }
   }
   
+  /*
   &__footer {
     margin-top: 15px;
   }
-  
-  /*
-  * The following styles are auto-applied to elements with
-  * transition="modal" when their visibility is toggled
-  * by Vue.js.
-  *
-  * You can easily play with the modal transition by editing
-  * these styles.
   */
+  
   &-enter, &-leave-active {
     opacity: 0;
   }
@@ -513,6 +682,34 @@ $button-primary-bg: #0074c9;
   &-enter &__container,
   &-leave-active &__container {
     transform: scale(1.1);
+  }
+
+  @include tablet { 
+    /*브라우저 사이즈 1023px 이하일때*/
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+    &__container {
+      padding: 2.5rem;
+    }
+
+    &__description {
+      font-size: 1.2rem;
+    }
+  
+    &__header {
+      font-size: 1.8rem;
+    }
+
+    &__body {
+      // --- 증정굿즈 등록 --------------------------------------------------------
+      & .form {
+        max-height: 360px;
+        overflow-y: auto; 
+        margin-top: -1.8rem;        
+      }
+    }
   }
 }
 

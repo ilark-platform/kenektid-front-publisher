@@ -1,7 +1,7 @@
 /* color style */
 $color-primary: #0074c9;
 $color-secondary: #D7007F;
-$color-black: #000000;
+$color-black: #1b1b1b;
 $color-white: #ffffff;
 $color-red: #f00000;
 $color-gray-100: #f7f7f7;
@@ -9,8 +9,10 @@ $color-gray-200: #e2e2e2;
 $color-gray-300: #dbdbdb;
 $color-gray-400: #cccccc;
 $color-gray-500: #b6b6b6;
+$color-gray-600: #808080;
 $color-gray-700: #707070;
 $color-gray-900: #3e3e3e;
+
 
 /* border, box-shadow style */
 $border: 1px solid rgba($color-gray-300, 1);
@@ -19,9 +21,6 @@ $border-radius: 4px;
 $box-shadow: 0 5px 20px rgba($color-black, 0.2);
 $box-shadow-input: 0 3px 10px rgba($color-black, 0.1);
 
-
-
-$break-point: 800px;
 
 // Mixins
 @mixin position($position, $top: auto, $right: auto, $bottom: auto, $left: auto) {
@@ -35,4 +34,78 @@ $break-point: 800px;
 @mixin size($width, $height: auto) {
   width: $width;
   height: $height;
+}
+
+
+/* ------ BUTTON ----- */
+$button-border-radius: 4px;
+$button-font-size: 1.6rem;
+$button-padding: 0.875em 2em;
+
+$button-base-color: #fff;
+$button-base-bg: #a1c4dd;
+$button-primary-bg: #0074c9;
+$button-gray-bg: #b6b6b6;
+
+// --- button mixins ------------------------------------------------------------------
+@mixin bem-button($name, $bg) {
+	.btn--#{$name} {
+		background-color: $bg;
+    border-color: $bg;
+		@include bem-button-hover($bg);
+	}
+}
+
+@mixin bem-button-hover($bg) {
+	&:hover {
+		background-color: lighten($bg, 5%);
+	}
+}
+
+@mixin bem-button-size($name, $font-size) {
+	.btn--#{$name} {
+		font-size: $font-size;
+	}
+}
+
+@mixin bem-button-bordered($name, $color) {
+	.btn--bordered-#{$name} {
+		background: $button-base-color;;
+		border-color: $color;
+		color: $color;
+
+		&:hover {
+			background: $button-base-color;
+			color: darken($color, 10%);
+			border-color: darken($color, 10%);
+		}
+	}
+}
+
+
+
+/* 반응형 화면 크기 */
+$desktop: 1024px;
+$tablet: 1023px;
+$mobile: 767px;
+
+/* 반응형, 브라우저 크기가 1024px 이상일때 */
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+/* 반응형, 브라우저 크기가 1023px 이하일때 */
+@mixin tablet {
+  @media (max-width: $tablet) {
+    @content;
+  }
+}
+
+/* 반응형, 브라우저 크기가 767px 이하일때 */
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
 }

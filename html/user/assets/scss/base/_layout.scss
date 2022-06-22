@@ -1,1 +1,933 @@
 @import '../abstracts/mixins';
+
+/* ------ COMMON ----- */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__link {
+    display: block;
+  }
+  
+  &__image {
+    @include size(150px, $height: 66px);
+    
+    img {
+      @include size(150px, $height: 66px);
+    }
+  }
+
+  &__title {
+      color: $color-primary;
+      font-size: 1.8rem;
+      font-weight: 700;
+  }
+}
+
+//알람 
+.badge {
+  @include position(absolute, $top: 3px, $left: 19px);
+  //@include size(15px, $height: 15px);
+  min-width: 9px;
+  height: 15px;
+  font-size: 1.1rem;
+  line-height: 15px;
+  padding: 0 3px;
+  text-align: center;
+  color: $color-white;
+  background-color: $color-red;
+  border-radius: 15px;
+  border: 1px solid $color-white;
+  box-sizing: content-box;
+  z-index: 2;
+  transition: all .3s;
+}
+
+//단락 나눔
+.divider {
+  width: 100%;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: $border;
+
+  &--dashed {
+    border-top: 1px dashed $color-gray-300;
+  }
+  
+  span {
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+}
+
+// --- 헤더 메뉴 아이콘 및 사이드바 메뉴 닫기 버튼 ------------------------------------------------------------------
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+   
+  &__item {
+    display: block;
+    @include size(20px, $height: 2px);
+    border-radius: 3px;
+  }
+
+  &--menu {
+    height: 16px;
+
+    .burger__item {
+      background-color: $color-primary;
+    }
+  }
+  &--close {
+    @include size(23px, $height: 23px);
+    flex-direction: row;
+    justify-content: center;
+
+    .burger__item {
+      position: absolute;
+      @include size(2px, $height: 23px);
+      background-color: $color-white;
+      &:first-child {
+        transform: rotate(45deg);
+      }
+      &:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+
+/* ------ 글로벌 메뉴 ----- */
+// --- 헤더 메뉴, 사이드바 메뉴 사용 ------------------------------------------------------------------
+.global-nav {
+  &__list {
+    padding: 2rem;
+  }
+
+  &__item {
+    margin-bottom: 8px;
+    
+    &.collapse {
+      margin-top: 1.8rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid $color-gray-200;
+    }
+    /*
+    .collapse__link {
+    }
+    */
+    .collapse__arrow {
+      margin-left: auto;
+      margin-right: 0;
+      color: $color-gray-700;
+    }
+    .collapse__list {
+      display: none;
+      padding: 8px 8px 8px 45px;
+    }
+    .collapse__list.collapse__list--open {
+      display: block;
+    }
+    .collapse__sublink {
+      display: block;
+      font-size: 1.4rem;
+      padding: 5px 0;
+      color: $color-gray-700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all .3s;
+    }
+    .collapse__sublink:hover, .collapse__sublink:focus {
+      color: $color-primary;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.4rem;
+    padding: 1rem;
+    color: $color-gray-700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover, &:focus {
+      color: $color-primary;
+      i {
+        color: $color-primary; 
+      }
+    }
+
+    &--open {
+      color: $color-primary !important;
+      i {
+        color: $color-primary !important; 
+      }
+      .collapse__arrow {
+        transform: rotate(180deg);
+      }
+    }
+
+    i {
+      font-size: 2rem;
+      color: $color-gray-500;
+      margin-right: 1.5rem;
+      transition: all .3s;
+    }
+  }
+}
+
+
+/* ------ HEADER ----- */
+.header {
+  @include position(fixed, $top: 0, $right: 0, $left: 0);
+  display: flex;
+  align-items: center;
+  @include size(100%, $height: 80px);
+  padding: 0 3rem;
+  background-color: $color-white;
+  transition: all .3s;
+  z-index: 100;
+
+  &::after {
+    content: '';
+    @include position(absolute, $bottom: 0, $right: 0, $left: 0);
+    height: 1px;
+    background-color: $color-gray-200;
+  }
+
+  &__logo {
+    margin-left: 3rem;
+
+    .logo {
+      flex-direction: row;
+
+      .logo__image {
+        @include size(75px, $height: 33px);
+        margin-right: 2rem;
+
+        img {
+          @include size(75px, $height: 33px);
+        }
+      }
+    }   
+  }
+
+  &__menu {
+    margin-left: auto;
+
+    .global-nav {
+      &__list {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+      }
+    
+      &__item {
+        margin-bottom: 0;
+        
+        &.collapse {
+          position: relative;
+          margin-top: 0;
+          padding-top: 0;
+          border-top: none;
+          margin-left: 1rem;
+        }
+        .collapse__arrow {
+          margin-left: 5px;
+          margin-right: 0;
+          color: $color-gray-700;          
+        }
+        .collapse__list {
+          @include position(absolute, $top: 46px, $right: 0);
+          padding: 12px 16px;
+          border: 1px solid $color-gray-500;
+          border-radius: $border-radius;
+          box-shadow: $box-shadow;
+          background-color: $color-white;
+          transition: all .3s ease;
+          z-index: 3;
+        }
+      }
+
+      &__link {
+        font-size: 1.4rem;
+        padding: 1rem;
+        color: $color-black;
+    
+        &:hover, &:focus {
+          color: $color-primary;
+          i {
+            color: $color-primary; 
+          }
+        }
+    
+        &--open {
+          color: $color-primary !important;
+          i {
+            color: $color-primary !important; 
+          }
+        }
+    
+        i {
+          color: $color-primary;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+
+  @include tablet { 
+    /*브라우저 사이즈 1023px 이하일때*/
+    height: 70px;
+    padding: 0 2rem;
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+    height: 60px;
+
+    &__logo {
+      .logo__title {
+        display: none;
+      }
+    }
+
+    &__menu {
+      .global-nav {
+        &__item {
+          .badge {
+            @include position(absolute, $top: 5px, $left: 22px);
+            @include size(6px, $height: 6px);
+            min-width: auto;
+            padding: 0;
+            font-size: 0;
+            text-indent: -9999px;
+          }
+        }
+
+        &__title {
+          display: none;
+        }
+
+        &__link {
+          i {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }  
+}
+
+
+/* ------ SIDEBAR ----- */
+.dim-layer {
+  @include position(fixed, $top: 0, $left: 0);
+  @include size($width: 100vw, $height: 100vh);
+  display: none;
+  background-color: rgba(0,0,0,.5);
+  animation: fade 0.5s;
+  z-index: 199;
+  
+  &.is-active {
+    display: block;
+  }
+}
+
+.sidebar {
+  @include position(fixed, $top: 0, $left: 0);
+  max-height: 100vh;
+  //height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  max-width: 70vw;
+  min-width: 270px;
+  background-color: $color-white;
+  transition: all .3s ease-in-out;
+  transform: translate(-150%, 0px);
+  z-index: 200;
+
+  &.is-active {
+    transition: all .3s ease-in-out;
+    transition-delay: .3s;
+    transform: translate(0%, 0px);
+    box-shadow: $box-shadow;
+  }  
+
+  &__close {
+    @include position(absolute, $top: 3rem, $right: -3.5rem);
+    z-index: 3;
+  }
+
+  &__wrapper {
+    @include size(100%, $height: 100%);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @include size(100%, $height: 80px);
+    padding: 0 3rem;
+    border-bottom: $border;
+
+    .logo {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      &__image {
+        @include size(75px, $height: 33px);
+        
+        img {
+          @include size(75px, $height: 33px);
+        }
+      }
+    }
+  }
+
+  .global-nav {
+    min-height: 480px;
+  }
+
+  &__footer {
+    @include position(absolute, $bottom: 0, $left: 0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @include size(100%, $height: 60px);
+    background-color: $color-white;
+    padding: 0 3rem;
+    border-top: $border; 
+    z-index: 2;   
+  }
+
+  @include tablet { 
+    /*브라우저 사이즈 1023px 이하일때*/
+    &__header {
+      height: 70px;
+      padding: 0 2rem;
+    }
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+    &__header {
+      height: 60px;
+
+      .logo {
+        &__title {
+          font-size: 1.6rem;  
+        }
+      }
+    }
+  }
+}
+
+.switcher-language {
+  display: flex;
+  flex-direction: row;
+  & > i {
+    font-size: 1.8rem;
+    color: $color-gray-500;
+
+    &:hover, &:focus {
+      color: $color-primary;
+    } 
+  }
+  &__link {
+    position: relative;
+    font-size: 1.4rem;
+    margin-left: 1.2rem;
+    padding-right: 1.2rem;
+    color: $color-gray-500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .3s;
+
+    &::after {
+      content: '';
+      @include position(absolute, $top: 50%, $right: 0);
+      @include size(1px, $height: 10px);
+      background-color: $color-gray-400;
+      transform: translateY(-50%);
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+    
+    &:hover, &:focus, &--selected {
+      color: $color-black;
+    } 
+  }
+}
+
+
+/* ------ FOOTER ----- */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include size(100%, $height: 60px);
+  border-top: $border;
+
+  &__copyright {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: $color-gray-400;
+  }
+}
+
+/* ------ SUB COMMON ----- */ 
+.container {
+  &__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 15rem 2rem 7rem;
+  
+    @include tablet { 
+      /*브라우저 사이즈 1023px 이하일때*/
+      padding: 13rem 2rem 6rem;
+    }
+
+    @include mobile { 
+      /*브라우저 사이즈 767px 이하일때*/
+      padding: 10rem 2rem 4rem;
+    }
+  }
+}
+
+.l-row { 
+  display: flex;
+  @include size(100%, $height: auto);
+}
+
+.l-col {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  @include size(100%, $height: auto);
+
+  &--direction-column {
+    flex-direction: column;  
+  }
+
+  &--justify-between {
+    justify-content: space-between;
+  }
+}
+
+// --- 서브 타이틀 ------------------------------------------------------------------
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  &__title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: $color-black;
+  }
+
+  @include tablet { 
+    /*브라우저 사이즈 1023px 이하일때*/
+    &__title {
+      font-size: 2.6rem;
+    }    
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+    &__title {
+      font-size: 2.2rem;
+    }
+  }
+}
+
+.subheaders {
+  margin: 2rem 0;
+
+  &__title {
+    font-size: 2.2rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: $color-black;
+  }
+
+  @include tablet { 
+    /*브라우저 사이즈 1023px 이하일때*/
+    margin: 1.5rem 0;
+
+    &__title {
+      font-size: 2rem;
+    }    
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+    margin: 1.2rem 0;
+
+    &__title {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+// --- 버튼 영역 공통 ------------------------------------------------------------------
+.btn-wrapper {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  margin-top: 3rem;
+  
+  &__link {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: $color-black;
+    text-decoration: none;
+    transition: all .3s;
+
+    &:hover {
+      color: $color-gray-600;
+    }
+
+    i {
+      font-size: 2rem;
+      margin-right: 3px;
+    }
+  }
+}
+
+
+/* ------ 신청상태 ----- */
+.steppers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 0;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;    
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    
+    span {
+      display: inline-block;
+      margin-left: 1rem;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 480px;
+    height: 72px;
+  }
+
+  &__step {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 25%;
+
+    &::after {
+      content: '';
+      @include position(absolute, $top: 25px, $right: 50%);
+      @include size(100%, $height: 2px);
+      background-color: $color-gray-300;
+      z-index: -1;
+      transition: all .3s;
+    }
+
+    &:first-child::after {
+      display: none;
+    }
+
+    &--active {
+      &::after {
+        background-color: $color-primary;
+      }      
+      
+      .steppers__num {
+        background-color: $color-primary;  
+      }
+    }
+  }
+
+  &__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    @include size(50px, $height: 50px);
+    font-size: 2rem;
+    color: $color-white;
+    border-radius: 50%;
+    background-color: $color-gray-300;
+    transition: all .3s;
+  }
+
+  &__label {
+    margin-top: 8px;
+    font-size: 1.3rem;
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+    padding: 1rem 0;
+
+    &__header {
+      margin-bottom: 2rem;    
+    }
+
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__description {
+      font-size: 1.2rem;
+    }
+
+    &__step {
+      &::after {
+        top: 17px;
+      }
+    }
+
+    &__num {
+      @include size(34px, $height: 34px);
+      font-size: 1.6rem;
+    }
+  }
+}
+
+
+/* ------ 스토어 정보 ----- */
+.store-info {
+  padding: 2rem;
+  border: 1px dashed #ddd;
+  border-radius: 4px;
+
+  &__dt {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: $color-black;
+    margin-bottom: 6px;
+
+    i {
+      font-size: 2.4rem;
+      color: $color-primary;
+      vertical-align: middle;
+    }
+  }
+
+  &__dd {
+    position: relative;
+    font-size: 1.3rem;
+    color: $color-gray-600;
+    padding-left: 2.5rem;
+    margin: 2px 0;
+
+    &::before {
+      content: '';
+      @include position(absolute, $top: 50%, $left: 10px);
+      @include size(5px, $height: 5px);
+      border-radius: 50%;
+      background-color: $color-gray-300;
+      transform: translateY(-50%);  
+    }
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+    &__dt {
+      font-size: 1.4rem;
+    }
+
+    &__dd {
+      font-size: 1.2rem;
+    }    
+  }
+}
+
+
+/* ------ 상품 정보 ----- */
+.prd-info {
+  border-top: 2px solid $color-primary;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid $color-gray-100;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__label {
+    position: relative;
+    width: 160px;
+    font-weight: 500;
+    text-align: center;
+
+    &::after {
+      content: '';
+      @include position(absolute, $top: 50%, $right: 0);
+      @include size(1px, $height: 12px);
+      background-color: $color-gray-200;
+      transform: translateY(-50%);    
+    }
+  }
+
+  &__content {
+    width: calc(100% - 160px);
+    color: $color-gray-600;
+    padding-left: 4rem;
+    line-height: 1.6;
+
+    &-text-field {
+      padding: 1.6rem;
+      background-color: $color-gray-100;
+      border-radius: $border-radius;
+    }
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+    &__item {
+      flex-direction: column;
+      padding: 1.4rem 1rem;
+    }
+    
+    &__label {
+      width: 100%;
+      font-size: 1.2;
+      text-align: left;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &__content {
+      width: 100%;
+      padding-left: 0;
+      padding-top: 6px;
+    }
+  }
+}
+
+
+/* ------ 해시태그 ----- */
+.hashtag {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    height: 28px;
+    font-size: 1.2rem;
+    color: $color-gray-600;
+    padding: 0 10px;
+    margin-right: 6px;
+    border: 1px solid $color-gray-500;
+    border-radius: 30px;
+  }
+}
+
+
+/* ------ 신청내역 관리자 코멘트 ----- */
+.manager-comment {
+  display: flex;
+  align-items: center;
+  
+  &__label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    color: $color-black;
+
+    div {
+      margin-top: 1rem;
+    }
+  }
+
+  &__text-field {
+    width: calc(100% - 200px);
+    color: $color-gray-600;
+    line-height: 1.6;
+    padding: 1.6rem;
+    background-color: $color-gray-100;
+    border: 1px solid $color-gray-200;
+    border-radius: $border-radius;
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+    flex-direction: column;
+
+    &__label {
+      flex-direction: row;
+      width: 100%;
+      font-size: 1.8rem;
+
+      div {
+        margin-top: 0;
+        margin-left: 2rem;
+      }
+    }
+
+    &__text-field {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
+}
+
+.color-primary {
+  color: $color-primary;
+}
+.color-secondary {
+  color: $color-secondary;    
+}
+.color-red {
+  color: $color-red;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

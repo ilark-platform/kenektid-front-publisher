@@ -1,4 +1,4 @@
-@import 'abstracts/mixins';
+@import './abstracts/mixins';
 
 .l-grid {
   position: relative;
@@ -6,12 +6,14 @@
   align-items: center;
   width: 100%;
   height: calc(var(--vh, 1vh) * 100);
+  padding: 0 2rem;
   min-height: 500px;
   overflow: hidden;
   
   &--height-auto {
     height: auto;
-    padding: 6.4rem 0;
+    padding-top: 6.4rem;
+    padding-bottom: 6.4rem;
   }
 }
 
@@ -89,23 +91,20 @@
     }
   } 
   
-  // Viewport <= 800px
-  @media screen and (max-width: $break-point) {
-    padding: 0 2rem;
-   
-    &__bottom {
-      padding: 2rem;
-    }
-    
-    &__link {
-      margin: 1rem 0;
+  @include tablet { 
+    /*브라우저 사이즈 1023px 이하일때*/
+    &__title {
+      font-size: 2.6rem;
+    }    
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+    &__title {
+      font-size: 2.2rem;
     }
   }
 }
 
-.divider {
-  margin-top: 3rem;
-  padding-top: 3rem;
-  border-top: $border;  
-}
+
 

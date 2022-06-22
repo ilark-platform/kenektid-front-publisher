@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>도서입고신청</title>
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/icofont.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+
+<body>
+    <!-- 전체 페이지 공통으로 사용 (로그인, 회원가입 제외) { -->
+    <header class="header">
+        <div class="header__sidebar-trigger js-sidebar-trigger">
+            <div class="burger burger--menu">
+                <span class="burger__item"></span>
+                <span class="burger__item"></span>
+                <span class="burger__item"></span>
+            </div>
+        </div>        
+        <div class="header__logo">
+            <div class="logo">
+                <a class="logo__link" href="#">
+                    <h1 class="logo__image"><img src="./assets/img/logo.png" alt="KENEKTID"></h1>
+                </a>
+                <span class="logo__title">WRITER</span>
+            </div>
+        </div>
+        <div class="header__menu">
+            <nav class="global-nav">
+                <ul class="global-nav__list">
+                    <li class="global-nav__item">
+                        <a href="#" class="global-nav__link">
+                            <em class="badge">13</em>
+                            <i class="icofont-alarm"></i>
+                            <span class="global-nav__title">재입고요청</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item collapse">
+                        <div class="global-nav__link collapse__link">
+                            <i class="icofont-user-alt-7"></i>
+                            <span class="global-nav__title">유명훈</span>
+                            <i class="icofont-thin-down collapse__arrow"></i>
+                        </div>
+                        <ul class="collapse__list">
+                            <li class="collapse__item">
+                                <a href="./mypage_publisher.html" class="collapse__sublink">회원정보수정</a>
+                            </li>
+                            <li class="collapse__item">
+                                <a href="#" class="collapse__sublink">로그아웃</a>
+                            </li>
+                        </ul>                    
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dim-layer"></div>
+
+    <div class="sidebar">
+        <div class="sidebar__close js-sidebar-close">
+            <div class="burger burger--close">
+                <span class="burger__item"></span>
+                <span class="burger__item"></span>
+            </div>
+        </div>
+        <div class="sidebar__wrapper">
+            <div class="sidebar__header">
+                <div class="logo">
+                    <div class="logo__image"><img src="./assets/img/logo.png" alt="KENEKTID"></div>
+                    <span class="logo__title">WRITER</span>
+                </div>
+            </div>
+            <nav class="global-nav">
+                <ul class="global-nav__list">
+                    <li class="global-nav__item">
+                        <a href="#" class="global-nav__link">
+                            <i class="icofont-book-alt"></i>    
+                            <span class="global-nav__title">입고현황</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item">
+                        <a href="#" class="global-nav__link">
+                            <i class="icofont-search-document"></i>
+                            <span class="global-nav__title">신청내역</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item">
+                        <a href="#" class="global-nav__link">
+                            <i class="icofont-chart-bar-graph"></i>
+                            <span class="global-nav__title">판매내역</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item">
+                        <a href="#" class="global-nav__link">
+                            <em class="badge">3</em>
+                            <i class="icofont-alarm"></i>
+                            <span class="global-nav__title">재입고 요청현황</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item collapse">
+                        <div class="global-nav__link collapse__link">
+                            <i class="icofont-ui-copy"></i>
+                            <span class="global-nav__title">입고신청</span>
+                            <i class="icofont-thin-down collapse__arrow"></i>
+                        </div>
+                        <ul class="collapse__list">
+                            <li class="collapse__item">
+                                <a href="./stock_books.html" class="collapse__sublink">도서입고</a>
+                            </li>
+                            <li class="collapse__item">
+                                <a href="./stock_goods.html" class="collapse__sublink">굿즈입고</a>
+                            </li>
+                        </ul>                    
+                    </li>
+                </ul>    
+            </nav>
+            <div class="sidebar__footer">
+                <div class="switcher-language">
+                    <i class="icofont-globe"></i>
+                    <a href="#" class="switcher-language__link switcher-language__link--selected">KOR</a>
+                    <a href="#" class="switcher-language__link">ENG</a>        
+                </div>
+            </div>            
+        </div>
+    </div>
+    <!-- } 전체 페이지 공통으로 사용 (로그인, 회원가입 제외) -->
+
+    <div class="container">
+        <div class="container__inner">
+            <div class="breadcrumbs">
+                <h2 class="breadcrumbs__title">도서입고신청</h2>                        
+            </div>
+            <form class="form">
+                <fieldset>
+                    <legend>도서입고신청</legend>
+                    <div class="l-col l-col--justify-between">
+                        <div class="field-group field-group--half">
+                            <label for="subject" class="field-group__label">제목<em class="icon-required">*</em></label>
+                            <input type="text" name="subject" class="field-group__input" placeholder="제목을 입력해주세요" required>
+                            <span class="field-group__help field-group__help--error">제목을 입력해주세요</span>
+                        </div>
+                        <div class="field-group field-group--half">
+                            <label for="genre" class="field-group__label">장르<em class="icon-required">*</em></label>
+                            <div class="select-dropdown">
+                                <div class="select-dropdown__inner"><!-- 활성화시 "expanded" 클래스 추가 -->
+                                    <div class="select-dropdown__label">
+                                        <span>장르를 선택해주세요</span>
+                                    </div>
+                                    <div class="select-dropdown__arrow"></div>
+                                    <div class="hidden"><!-- 활성화시 "drop_visible" 클래스로 교체 -->
+                                        <ul class="select-dropdown__list">
+                                            <li class="select-dropdown__item">에세이</li>
+                                            <li class="select-dropdown__item">소설</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="field-group__help field-group__help--error">장르를 선택해주세요</span>                                     
+                        </div>
+                        <div class="field-group field-group--half">
+                            <label for="size" class="field-group__label">크기<em class="icon-required">*</em></label>
+                            <input type="text" name="size" class="field-group__input" placeholder="예시: 152*225mm" required>
+                            <span class="field-group__help field-group__help--error">크기를 입력해주세요</span>
+                        </div>
+                        <div class="field-group field-group--half">
+                            <label for="size" class="field-group__label">쪽수<em class="icon-required">*</em></label>
+                            <input type="text" name="size" class="field-group__input" placeholder="숫자만 입력해주세요" required>
+                            <span class="field-group__help field-group__help--error">쪽수를 입력해주세요</span>
+                        </div>
+                        <div class="field-group field-group--half">
+                            <label for="isbn" class="field-group__label">ISBN</label>
+                            <input type="text" name="isbn" class="field-group__input" placeholder="영어와 숫자만 입력해주세요">
+                        </div>
+                        <div class="field-group field-group--half">
+                            <label for="price" class="field-group__label">판매가격(원)<em class="icon-required">*</em></label>
+                            <input type="text" name="price" class="field-group__input" placeholder="숫자만 입력해주세요" required>
+                            <span class="field-group__help field-group__help--error">판매가격을 입력해주세요</span>
+                        </div>
+                        <div class="field-group field-group--half">
+                            <label for="quantity" class="field-group__label">입고수량<em class="icon-required">*</em></label>
+                            <input type="text" name="quantity" class="field-group__input" placeholder="최대 5개까지 입력 가능합니다" required>
+                            <span class="field-group__help field-group__help--error">입고수량을 입력해주세요</span>
+                        </div>
+                        <div class="field-group field-group--half">
+                            <label for="sample" class="field-group__label">샘플수량</label>
+                            <input type="text" name="sample" class="field-group__input" placeholder="샘플을 희망하지 않을 시 비워두세요">
+                        </div>
+
+                        <div class="divider divider--dashed"></div>
+
+                        <div class="field-group">
+                            <span class="field-group__label">이미지<em class="icon-required">*</em></span>
+                            <div class="regi-image">
+                                <div class="regi-image__list">
+                                    <div class="regi-image__item regi-image__item--rep">
+                                        <span class="btn-delete"><i class="icofont-close-line"></i></span>
+                                        <img src="./assets/img/test_01.png">        
+                                    </div>
+                                    <div class="regi-image__item">
+                                        <span class="btn-delete"><i class="icofont-close-line"></i></span>
+                                        <img src="./assets/img/test_02.png">        
+                                    </div>
+                                    <div class="regi-image__item">
+                                        <span class="btn-delete"><i class="icofont-close-line"></i></span>
+                                        <img src="./assets/img/test_03.png">        
+                                    </div>
+                                    <div class="regi-image__item">
+                                        <span class="btn-delete"><i class="icofont-close-line"></i></span>
+                                        <img src="./assets/img/test_04.png">        
+                                    </div>
+                                    <div class="regi-image__item">
+                                        <span class="btn-delete"><i class="icofont-close-line"></i></span>
+                                        <img src="./assets/img/test_05.png">        
+                                    </div>
+                                    <div class="regi-image__item">
+                                        <label class="regi-image__label">
+                                            <i class="icofont-plus"></i>
+                                            <input type="file" class="regi-image__input">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="field-group__help">표지이미지 1장/기타 5장 필수 업로드</span>
+                        </div>
+
+                        <div class="divider divider--dashed"></div>
+                        
+                        <div class="field-group field-group--half">
+                            <label for="hashtag" class="field-group__label">해시태그(3개)<em class="icon-required">*</em></label>
+                            <input type="text" name="hashtag" class="field-group__input" placeholder=",로 구분해주세요" required>
+                            <span class="field-group__help field-group__help--error">해시태그를 입력해주세요</span>
+                        </div>
+                        <div class="field-group field-group--half">
+                            <label for="produce" class="field-group__label">제작구분<em class="icon-required">*</em></label>
+                            <div class="select-dropdown">
+                                <div class="select-dropdown__inner"><!-- 활성화시 "expanded" 클래스 추가 -->
+                                    <div class="select-dropdown__label">
+                                        <span>기타 제작</span>
+                                    </div>
+                                    <div class="select-dropdown__arrow"></div>
+                                    <div class="hidden"><!-- 활성화시 "drop_visible" 클래스로 교체 -->
+                                        <ul class="select-dropdown__list">
+                                            <li class="select-dropdown__item">커넥티드 제작</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>   
+                            <span class="field-group__help field-group__help--error">제작구분을 선택해주세요</span>                                  
+                        </div>
+                        <div class="field-group">
+                            <label for="indication" class="field-group__label">목차<em class="icon-required">*</em></label>
+                            <textarea name="indication" class="field-group__textarea" placeholder="500자 이하 입력 가능합니다"></textarea>
+                            <span class="field-group__help field-group__help--error">목차를 입력해주세요</span>
+                        </div>
+                        <div class="field-group">
+                            <label for="books_intro" class="field-group__label">도서 소개<em class="icon-required">*</em></label>
+                            <textarea name="books_intro" class="field-group__textarea" placeholder="500자 이하 입력 가능합니다"></textarea>
+                            <span class="field-group__help field-group__help--error">도서 소개를 입력해주세요</span>
+                        </div>
+                        <div class="field-group">
+                            <label for="who_need" class="field-group__label">이 상품을 필요로 할 사람<em class="icon-required">*</em></label>
+                            <textarea name="who_need" class="field-group__textarea" placeholder="예시: 디자이너의 삶은 어떠할까? 누군가 읽고 잠시 공감할 수 있도록"></textarea>
+                            <span class="field-group__help field-group__help--error">내용을 입력해주세요</span>
+                        </div>
+
+                        <div class="divider divider--dashed"></div>
+
+                        <div class="field-group field-group--half">
+                            <label for="writer" class="field-group__label">작가<em class="icon-required">*</em></label>
+                            <input type="text" name="writer" class="field-group__input" placeholder="저자를 입력해주세요" required>
+                            <span class="field-group__help field-group__help--error">작가를 입력해주세요</span>
+                        </div>
+                        <div class="field-group">
+                            <label for="writer_info" class="field-group__label">작가 소개<em class="icon-required">*</em></label>
+                            <textarea name="writer_info" class="field-group__textarea" placeholder="500자 이하 입력 가능합니다"></textarea>
+                            <span class="field-group__help field-group__help--error">내용을 입력해주세요</span>
+                        </div>
+                        <div class="field-group field-group--half">
+                            <label for="publisher" class="field-group__label">출판사</label>
+                            <input type="text" name="publisher" class="field-group__input" placeholder="출판사를 입력해주세요">
+                            <span class="field-group__help field-group__help--error">출판사를 입력해주세요</span>
+                        </div>
+                        <div class="field-group">
+                            <label for="publisher_info" class="field-group__label">출판사 소개</label>
+                            <textarea name="publisher_info" class="field-group__textarea" placeholder="500자 이하 입력 가능합니다"></textarea>
+                        </div>
+
+                        <div class="divider divider--dashed"></div>
+
+                        <div class="field-group">
+                            <span class="field-group__label">증정용 굿즈</span>
+                            <div class="regi-goods">
+                                <div class="regi-goods__list">
+                                    <div class="regi-goods__item">
+                                        <div class="regi-goods__thumb">
+                                            <img src="./assets/img/test_01.png">
+                                        </div>
+                                        <div class="regi-goods__content">
+                                            <div class="regi-goods__title">호호와 거난이 액자</div>
+                                            <div class="regi-goods__description">
+                                                <span>증정방안 - </span>
+                                                상품 하나당 한 개씩 증정해주세요 상품 하나당 한 개씩 증정해주세요 상품 하나당 한 개씩 증정해주세요 상품 하나당 한 개씩 증정해주세요 상품 하나당 한 개씩 증정해주세요 상품 하나당 한 개씩 증정해주세요 상품 하나당 한 개씩 증정해주세요 상품 하나당 한 개씩 증정해주세요
+                                            </div>
+                                        </div>
+                                        <span class="btn-delete"><i class="icofont-close-line"></i></span>
+                                    </div>
+                                    <div class="regi-goods__item">
+                                        <div class="regi-goods__thumb">
+                                            <img src="./assets/img/test_02.png">
+                                        </div>
+                                        <div class="regi-goods__content">
+                                            <div class="regi-goods__title">호호와 거난이 액자</div>
+                                            <div class="regi-goods__description">
+                                                <span>증정방안 - </span>
+                                                상품 하나당 한 개씩 증정해주세요
+                                            </div>
+                                        </div>
+                                        <span class="btn-delete"><i class="icofont-close-line"></i></span>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn--full btn--bordered-primary" onclick="openModal()">상품 추가</button>
+                            </div>
+                        </div>
+
+                        <div class="field-group field-group--half">
+                            <label for="produce" class="field-group__label">입고신청 책방<em class="icon-required">*</em></label>
+                            <div class="select-dropdown">
+                                <div class="select-dropdown__inner"><!-- 활성화시 "expanded" 클래스 추가 -->
+                                    <div class="select-dropdown__label">
+                                        <span>기타 제작</span>
+                                    </div>
+                                    <div class="select-dropdown__arrow"></div>
+                                    <div class="hidden"><!-- 활성화시 "drop_visible" 클래스로 교체 -->
+                                        <ul class="select-dropdown__list">
+                                            <li class="select-dropdown__item">커넥티드 제작</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="field-group__help field-group__help--error">입고신청 책방을 선택해주세요</span>                                    
+                        </div>
+
+                        <div class="field-group field-group--half">
+                            <dl class="store-info">
+                                <dt class="store-info__dt"><i class="icofont-location-pin"></i> 커넥티드 북스토어</dt>
+                                <dd class="store-info__dd">서울특별시 중구 을지로 20길 24-13</dd>
+                                <dd class="store-info__dd">https://kenektidbookstore.co.kr</dd>
+                                <dd class="store-info__dd">01052209785</dd>
+                            </dl>                                  
+                        </div>
+
+                        <div class="field-group">
+                            <label for="etc" class="field-group__label">기타 요청사항</label>
+                            <textarea name="etc" class="field-group__textarea" placeholder="500자 이하 입력 가능합니다"></textarea>
+                        </div>
+                        
+
+                        <div class="btn-wrapper">
+                            <button class="btn btn--large btn--primary is-disabled" type="button">신청하기</button><!-- 필수입력 항목 모두 입력시 활성화 : is-disabled 클래스 삭제 -->
+                        </div>
+                    </div>
+                </fieldset>    
+            </form>
+            <div class="btn-wrapper">
+                <a href="#" class="btn-wrapper__link"><i class="icofont-long-arrow-left"></i> 이전으로 돌아가기</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p class="footer__copyright">Copyright © kenektid inc. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <!-- 모달 팝업 : 증정용 굿즈 등록 { -->
+    <transition name="modal">
+        <div class="modal" id="modal">
+            <div class="modal__wrapper">
+                <div class="modal__container">
+                    <button class="modal__close" onclick="closeModal()"><i class="icofont-close-line"></i></button>
+                    <div class="modal__header modal__header--text-left">
+                        증정굿즈 등록
+                        <p class="modal__description">증정굿즈의 수량은 상품과 1:1 입니다.<br>입고 승인시 상품수량과 동일한 수량으로 보내주세요.</p>
+                    </div>
+                    <div class="modal__body modal__body--text-left">
+                        <form class="form">
+                            <fieldset>
+                                <legend>증정굿즈 등록</legend>
+                                <div class="field-group">
+                                    <label for="goods_name" class="field-group__label">상품명<em class="icon-required">*</em></label>
+                                    <input type="text" name="goods_name" class="field-group__input" placeholder="상품명을 입력해주세요" required>
+                                </div>
+                                <div class="field-group">
+                                    <span class="field-group__label">이미지<em class="icon-required">*</em></span>
+                                    <div class="regi-image">
+                                        <div class="regi-image__list">
+                                            <div class="regi-image__item">
+                                                <span class="btn-delete"><i class="icofont-close-line"></i></span>
+                                                <img src="./assets/img/test_02.png">        
+                                            </div>
+                                            <div class="regi-image__item">
+                                                <label class="regi-image__label">
+                                                    <i class="icofont-plus"></i>
+                                                    <input type="file" class="regi-image__input">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="field-group__help">표지이미지 1장 필수 업로드</span>
+                                </div>
+                                <div class="field-group">
+                                    <label for="writer_info" class="field-group__label">증정방안<em class="icon-required">*</em></label>
+                                    <textarea name="writer_info" class="field-group__textarea" placeholder="예시: 상품 하나당 한 개씩 증정해주세요"></textarea>
+                                </div>
+                            </fieldset>    
+                        </form>                    
+                    </div>
+                    <div class="modal__footer">
+                        <button type="submit" class="btn btn--full btn--primary">등록하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </transition>
+    <!-- } 모달 팝업 -->
+
+    <script src="assets/js/function.js"></script>
+</body>
+</html>

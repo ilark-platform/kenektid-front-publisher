@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>회원정보수정 (작가)</title>
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/icofont.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+
+<body>
+    <!-- 전체 페이지 공통으로 사용 (로그인, 회원가입 제외) { -->
+    <header class="header">
+        <div class="header__sidebar-trigger js-sidebar-trigger">
+            <div class="burger burger--menu">
+                <span class="burger__item"></span>
+                <span class="burger__item"></span>
+                <span class="burger__item"></span>
+            </div>
+        </div>        
+        <div class="header__logo">
+            <div class="logo">
+                <a class="logo__link" href="#">
+                    <h1 class="logo__image"><img src="./assets/img/logo.png" alt="KENEKTID"></h1>
+                </a>
+                <span class="logo__title">WRITER</span>
+            </div>
+        </div>
+        <div class="header__menu">
+            <nav class="global-nav">
+                <ul class="global-nav__list">
+                    <li class="global-nav__item">
+                        <a href="#" class="global-nav__link">
+                            <em class="badge">13</em>
+                            <i class="icofont-alarm"></i>
+                            <span class="global-nav__title">재입고요청</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item collapse">
+                        <div class="global-nav__link collapse__link">
+                            <i class="icofont-user-alt-7"></i>
+                            <span class="global-nav__title">유명훈</span>
+                            <i class="icofont-thin-down collapse__arrow"></i>
+                        </div>
+                        <ul class="collapse__list">
+                            <li class="collapse__item">
+                                <a href="./mypage_publisher.html" class="collapse__sublink">회원정보수정</a>
+                            </li>
+                            <li class="collapse__item">
+                                <a href="#" class="collapse__sublink">로그아웃</a>
+                            </li>
+                        </ul>                    
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dim-layer"></div>
+
+    <div class="sidebar">
+        <div class="sidebar__close js-sidebar-close">
+            <div class="burger burger--close">
+                <span class="burger__item"></span>
+                <span class="burger__item"></span>
+            </div>
+        </div>
+        <div class="sidebar__wrapper">
+            <div class="sidebar__header">
+                <div class="logo">
+                    <div class="logo__image"><img src="./assets/img/logo.png" alt="KENEKTID"></div>
+                    <span class="logo__title">WRITER</span>
+                </div>
+            </div>
+            <nav class="global-nav">
+                <ul class="global-nav__list">
+                    <li class="global-nav__item">
+                        <a href="#" class="global-nav__link">
+                            <i class="icofont-book-alt"></i>    
+                            <span class="global-nav__title">입고현황</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item">
+                        <a href="#" class="global-nav__link">
+                            <i class="icofont-search-document"></i>
+                            <span class="global-nav__title">신청내역</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item">
+                        <a href="#" class="global-nav__link">
+                            <i class="icofont-chart-bar-graph"></i>
+                            <span class="global-nav__title">판매내역</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item">
+                        <a href="#" class="global-nav__link">
+                            <em class="badge">3</em>
+                            <i class="icofont-alarm"></i>
+                            <span class="global-nav__title">재입고 요청현황</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item collapse">
+                        <div class="global-nav__link collapse__link">
+                            <i class="icofont-ui-copy"></i>
+                            <span class="global-nav__title">입고신청</span>
+                            <i class="icofont-thin-down collapse__arrow"></i>
+                        </div>
+                        <ul class="collapse__list">
+                            <li class="collapse__item">
+                                <a href="./stock_books.html" class="collapse__sublink">도서입고</a>
+                            </li>
+                            <li class="collapse__item">
+                                <a href="./stock_goods.html" class="collapse__sublink">굿즈입고</a>
+                            </li>
+                        </ul>                    
+                    </li>
+                </ul>    
+            </nav>
+            <div class="sidebar__footer">
+                <div class="switcher-language">
+                    <i class="icofont-globe"></i>
+                    <a href="#" class="switcher-language__link switcher-language__link--selected">KOR</a>
+                    <a href="#" class="switcher-language__link">ENG</a>        
+                </div>
+            </div>            
+        </div>
+    </div>
+    <!-- } 전체 페이지 공통으로 사용 (로그인, 회원가입 제외) -->
+
+    <div class="container">
+        <div class="container__inner">
+            <section class="account">
+                <div class="account__header">
+                    <h2 class="account__title">회원정보수정</h2>
+                </div>
+                <div class="account__body">
+                    <form class="form">
+                        <fieldset>
+                            <legend>출판사 회원가입</legend>
+                            <div class="field-group">
+                                <div class="photo-upload">
+                                    <div class="photo-upload__form">
+                                        <input
+                                            type="file"
+                                            name="photo-upload-button"
+                                            id="photo-upload-button"
+                                            class="photo-upload__input-file"
+                                        >
+                                        <label for="photo-upload-button">프로필 이미지</label>
+                                    </div>
+                                    <div class="photo-upload__image-preview">
+                                        <img class="photo-upload__img" src="./assets/img/login_bg.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field-group">
+                                <label for="email" class="field-group__label">아이디(이메일)</label>
+                                <input type="email" name="email" class="field-group__input field-group__input--disabled" value="mhoo999@naver.com" disabled>
+                            </div>
+                            <div class="field-group">
+                                <label for="name" class="field-group__label">이름</label>
+                                <input type="text" name="name" class="field-group__input field-group__input--disabled" value="유명훈" disabled>
+                            </div>
+                            <div class="field-group">
+                                <label for="phone" class="field-group__label">휴대전화</label>
+                                <input type="tel" name="phone" class="field-group__input" pattern="[0-9]*" value="01052209785" placeholder="- 없이 숫자만 입력해주세요" required>
+                            </div>
+                            <div class="field-group">
+                                <span class="field-group__label">주소지<em class="icon-required">*</em></span>
+                                <div class="field-address">
+                                    <div class="field-group__input">서울 금천구 벚꽃로 298, 대륭포스트타워 6차</div>
+                                    <button type="button" class="btn btn btn--bordered-primary"><i class="icofont-search-1"></i></button>
+                                </div>
+                                <input type="text" name="phone" class="field-group__input" value="1613호" placeholder="나머지 주소를 입력해주세요" autocomplete="off" required>
+                            </div>
+                            <div class="field-group">
+                                <label for="homepage" class="field-group__label">홈페이지/SNS</label>
+                                <input type="text" name="homepage" class="field-group__input" value="https://www.instagram.com/kangaroo.club/" placeholder="URL 주소를 입력해주세요">
+                            </div>
+                            
+                            <div class="divider">
+                                <span>정산정보</span>
+                            </div>
+                            <div class="field-group">
+                                <label for="registration_number" class="field-group__label">주민등록번호</label>
+                                <input type="text" name="registration_number" class="field-group__input field-group__input--disabled" value="910430-1******" disabled>
+                            </div>
+                            <div class="field-group">
+                                <label for="bank" class="field-group__label">은행</label>
+                                <input type="text" name="bank" class="field-group__input field-group__input--disabled" value="우리은행" disabled>              
+                            </div>
+                            <div class="field-group">
+                                <label for="account_holder" class="field-group__label">예금주</label>
+                                <input type="text" name="account_holder" class="field-group__input field-group__input--disabled" value="유명훈" disabled>
+                            </div>
+                            <div class="field-group">
+                                <label for="account_number" class="field-group__label">계좌번호</label>
+                                <input type="text" name="account_number" class="field-group__input field-group__input--disabled" value="3333-**-*******" disabled>
+                            </div>
+
+
+                            <div class="divider">
+                                <span>서비스 정책</span>
+                            </div>
+                            <div class="field-group">
+                                <div class="checkbox">
+                                    <label class="checkbox__wrapper">
+                                        <span class="checkbox__title">[선택] 이메일 마케팅 정보 수신 동의</span>
+                                        <input type="checkbox" name="marketing1" class="checkbox--hidden checkbox--primary">
+                                        <div class="checkbox--show"></div>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label class="checkbox__wrapper">
+                                        <span class="checkbox__title">[선택] 휴대폰 마케팅 정보 수신 동의</span>
+                                        <input type="checkbox" name="marketing2" class="checkbox--hidden checkbox--primary">
+                                        <div class="checkbox--show"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="field-group">
+                                <button class="btn btn--full btn--large btn--gray" type="button">수정하기</button>
+                                <button class="btn btn--full btn--large btn--bordered-primary" type="button">비밀번호 재설정</button>
+                            </div>
+                        </fieldset>    
+                    </form>
+                </div>
+                <div class="btn-wrapper">
+                    <a href="#" class="btn-wrapper__link"><i class="icofont-long-arrow-left"></i> 이전으로 돌아가기</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p class="footer__copyright">Copyright © kenektid inc. ALL RIGHTS RESERVED.</p>
+    </footer>
+        
+    <script src="assets/js/function.js"></script>
+</body>
+</html>
