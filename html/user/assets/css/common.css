@@ -1120,6 +1120,23 @@ input[type=number] {
   background-color: #0074c9;
 }
 
+.steppers__step--refuse::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  right: auto;
+  bottom: auto;
+  left: 88%;
+  width: 30px;
+  height: 2px;
+  background-color: #dbdbdb;
+  z-index: 1;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: rotate(120deg);
+          transform: rotate(120deg);
+}
+
 .steppers__num {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -1161,6 +1178,11 @@ input[type=number] {
   }
   .steppers__step::after {
     top: 17px;
+  }
+  .steppers__step--refuse::before {
+    top: 17px;
+    left: 90%;
+    width: 24px;
   }
   .steppers__num {
     width: 34px;
