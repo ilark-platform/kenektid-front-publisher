@@ -559,6 +559,8 @@
   margin: 2rem 0;
 
   &__title {
+    display: flex;
+    align-items: center;
     font-size: 2.2rem;
     font-weight: 500;
     line-height: 1.3;
@@ -583,6 +585,7 @@
     }
   }
 }
+
 
 // --- 버튼 영역 공통 ------------------------------------------------------------------
 .btn-wrapper {
@@ -714,7 +717,7 @@
     }
 
     &__title {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
 
     &__description {
@@ -860,6 +863,171 @@
   }
 }
 
+.prd-info2 {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid $color-black;
+  border-bottom: 1px solid $color-gray-200;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    width: 33.33333%;
+    border-bottom: 1px solid $color-gray-100;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__label {
+    width: 160px;
+    font-weight: 500;
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba($color-gray-100, .6);
+  }
+
+  &__content {
+    width: calc(100% - 160px);
+    color: $color-gray-600;
+    padding-left: 1.6rem;
+  }
+
+  @include tablet { 
+    /*브라우저 사이즈 1023px 이하일때*/
+    &__item {
+      width: 50%;
+    }    
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+    &__item {
+      width: 100%;
+    }  
+
+    &__label {
+      width: 120px;
+      font-size: 1.2rem;
+    }
+
+    &__content {
+      width: calc(100% - 120px);
+    }
+  }
+}
+
+.unitheaders {
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+
+  &__title {
+    display: flex;
+    align-items: flex-end;
+    font-size: 2.8rem;
+    line-height: 1.3;
+    color: $color-black;
+    margin-top: 2rem;
+
+    strong {
+      font-weight: 700;
+    }
+
+    span {
+      font-size: 1.6rem;
+      color: $color-gray-600;
+      padding-left: 2rem;
+    }
+  }
+
+  @include tablet { 
+    /*브라우저 사이즈 1023px 이하일때*/
+    &__title {
+      font-size: 2.6rem;
+    }    
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+    &__title {
+      font-size: 2.2rem;
+
+      span {
+        font-size: 1.3rem;       
+      }
+    }
+  }
+}
+
+.unit-store {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 0;
+
+  &__item {
+    position: relative;
+    width: 32%;
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: rgba($color-gray-100, .8);
+    border-radius: 12px;
+  }
+
+  &__label {
+    font-size: 1.6rem;
+    color: $color-black;
+  }
+
+  &__title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: $color-primary;
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+    &__item {
+      width: 32%;
+      padding: 2rem 1rem;      
+    }
+
+    &__label {
+      font-size: 1.3rem;
+    }
+
+    &__title {
+      font-size: 2.8rem;
+    }
+  }
+}
+
+
+
+/* ------ CHIPS ----- */
+.chips {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    height: 28px;
+    font-size: 1.2rem;
+    color: $color-primary;
+    padding: 0 1.6rem;
+    margin-right: 6px;
+    border: 1px solid $color-primary;
+    border-radius: 28px;
+
+    &--discontinued {
+      color: $color-white;
+      border: 1px solid $color-gray-500;
+      background-color: $color-gray-500;
+    }
+  }
+}
+
 
 /* ------ 해시태그 ----- */
 .hashtag {
@@ -875,7 +1043,7 @@
     padding: 0 10px;
     margin-right: 6px;
     border: 1px solid $color-gray-500;
-    border-radius: 30px;
+    border-radius: 28px;
   }
 }
 
@@ -931,6 +1099,63 @@
     }
   }
 }
+
+
+/* ------ 탭메뉴 ----- */
+.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__col6 {
+    width: 50%;
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+  }
+
+  &__title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: $color-gray-500;
+  }
+
+  @include tablet { 
+    /*브라우저 사이즈 1023px 이하일때*/
+    &__title {
+      font-size: 2.6rem;
+    }    
+  }
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+    &__title {
+      font-size: 2.2rem;
+    }
+  }
+}
+
+
+/* 펼침 */
+.js-showhide {
+  cursor: pointer;
+
+  &__arrow {
+    margin-left: 1rem;
+    font-size: 2.4rem;
+    color: $color-gray-900;
+    transition: all .3s;
+  }
+  &.is-open {
+    .js-showhide__arrow {
+      transform: rotate(180deg);
+    }  
+  }
+}
+
 
 .color-primary {
   color: $color-primary;

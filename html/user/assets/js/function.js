@@ -47,3 +47,24 @@ function openModal() {
 function closeModal() {
   modal.style.display = "none";  
 }
+
+/* 펼침 */
+let elToggle = document.getElementsByClassName('js-showhide');
+
+for(var i=0; i<elToggle.length; i++){
+  elToggle[i].nextElementSibling.style.display = "none";
+
+  elToggle[i].addEventListener('click', function(){
+    let targetEl = this.nextElementSibling
+    if (targetEl.style.display=='block') {
+      targetEl.style.display='none';
+    }
+    else {
+      targetEl.style.display='block';
+    }
+    
+    let previousEl = targetEl.previousElementSibling
+    previousEl.classList.toggle('is-open')
+    
+  })
+}
