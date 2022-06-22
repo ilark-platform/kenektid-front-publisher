@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>신청내역 상세페이지(승인)</title>
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/icofont.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+
+<body>
+    <!-- 전체 페이지 공통으로 사용 (로그인, 회원가입 제외) { -->
+    <header class="header">
+        <div class="header__sidebar-trigger js-sidebar-trigger">
+            <div class="burger burger--menu">
+                <span class="burger__item"></span>
+                <span class="burger__item"></span>
+                <span class="burger__item"></span>
+            </div>
+        </div>        
+        <div class="header__logo">
+            <div class="logo">
+                <a class="logo__link" href="#">
+                    <h1 class="logo__image"><img src="assets/img/logo.png" alt="KENEKTID"></h1>
+                </a>
+                <span class="logo__title">WRITER</span>
+            </div>
+        </div>
+        <div class="header__menu">
+            <nav class="global-nav">
+                <ul class="global-nav__list">
+                    <li class="global-nav__item">
+                        <a href="restock_list.html" class="global-nav__link">
+                            <em class="badge">13</em>
+                            <i class="icofont-alarm"></i>
+                            <span class="global-nav__title">재입고요청</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item collapse">
+                        <div class="global-nav__link collapse__link">
+                            <i class="icofont-user-alt-7"></i>
+                            <span class="global-nav__title">유명훈</span>
+                            <i class="icofont-thin-down collapse__arrow"></i>
+                        </div>
+                        <ul class="collapse__list">
+                            <li class="collapse__item">
+                                <a href="mypage_publisher.html" class="collapse__sublink">회원정보수정</a>
+                            </li>
+                            <li class="collapse__item">
+                                <a href="#" class="collapse__sublink">로그아웃</a>
+                            </li>
+                        </ul>                    
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dim-layer"></div>
+
+    <div class="sidebar">
+        <div class="sidebar__close js-sidebar-close">
+            <div class="burger burger--close">
+                <span class="burger__item"></span>
+                <span class="burger__item"></span>
+            </div>
+        </div>
+        <div class="sidebar__wrapper">
+            <div class="sidebar__header">
+                <div class="logo">
+                    <div class="logo__image"><img src="assets/img/logo.png" alt="KENEKTID"></div>
+                    <span class="logo__title">WRITER</span>
+                </div>
+            </div>
+            <nav class="global-nav">
+                <ul class="global-nav__list">
+                    <li class="global-nav__item">
+                        <a href="stock_list.html" class="global-nav__link">
+                            <i class="icofont-book-alt"></i>    
+                            <span class="global-nav__title">입고현황</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item">
+                        <a href="app_list.html" class="global-nav__link">
+                            <i class="icofont-search-document"></i>
+                            <span class="global-nav__title">신청내역</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item">
+                        <a href="sales_list.html" class="global-nav__link">
+                            <i class="icofont-chart-bar-graph"></i>
+                            <span class="global-nav__title">판매내역</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item">
+                        <a href="restock_list.html" class="global-nav__link">
+                            <em class="badge">3</em>
+                            <i class="icofont-alarm"></i>
+                            <span class="global-nav__title">재입고 요청현황</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item collapse">
+                        <div class="global-nav__link collapse__link">
+                            <i class="icofont-ui-copy"></i>
+                            <span class="global-nav__title">입고신청</span>
+                            <i class="icofont-thin-down collapse__arrow"></i>
+                        </div>
+                        <ul class="collapse__list">
+                            <li class="collapse__item">
+                                <a href="stock_books.html" class="collapse__sublink">도서입고</a>
+                            </li>
+                            <li class="collapse__item">
+                                <a href="stock_goods.html" class="collapse__sublink">굿즈입고</a>
+                            </li>
+                        </ul>                    
+                    </li>
+                </ul>    
+            </nav>
+            <div class="sidebar__footer">
+                <div class="switcher-language">
+                    <i class="icofont-globe"></i>
+                    <a href="#" class="switcher-language__link switcher-language__link--selected">KOR</a>
+                    <a href="#" class="switcher-language__link">ENG</a>        
+                </div>
+            </div>            
+        </div>
+    </div>
+    <!-- } 전체 페이지 공통으로 사용 (로그인, 회원가입 제외) -->
+
+    <div class="container">
+        <div class="container__inner">
+            <div class="subheaders">
+                <h4 class="subheaders__title ">판매정보</h4>                        
+            </div>
+            <div class="unitheaders">
+                <div class="chips">
+                    <span class="chips__item">판매중</span>
+                    <span class="chips__item chips__item--discontinued">단종</span>
+                    <span class="chips__item">KENEKTID</span>
+                </div>
+                <div class="unitheaders__title">
+                    <strong>모래알만 한 진실이라도</strong>                        
+                    <span>도서</span>
+                </div>                
+            </div>
+            <ul class="prd-info2">
+                <li class="prd-info2__item">
+                    <div class="prd-info2__label">장르</div>
+                    <div class="prd-info2__content">소설</div>    
+                </li>
+                <li class="prd-info2__item">
+                    <div class="prd-info2__label">작가</div>
+                    <div class="prd-info2__content">유명훈</div>    
+                </li>
+                <li class="prd-info2__item">
+                    <div class="prd-info2__label">판매가격</div>
+                    <div class="prd-info2__content">35,000원</div>    
+                </li>
+                <li class="prd-info2__item">
+                    <div class="prd-info2__label">재입고요청횟수</div>
+                    <div class="prd-info2__content">N</div>    
+                </li>
+                <li class="prd-info2__item">
+                    <div class="prd-info2__label">판매책방</div>
+                    <div class="prd-info2__content">KENEKTID</div>    
+                </li>
+                <li class="prd-info2__item">
+                    <div class="prd-info2__label">담당자</div>
+                    <div class="prd-info2__content">매니저명</div>    
+                </li>
+                <li class="prd-info2__item">
+                    <div class="prd-info2__label">전화번호</div>
+                    <div class="prd-info2__content">01012345678</div>    
+                </li>
+            </ul>
+            <div class="unit-store">
+                <div class="unit-store__item">
+                    <div class="unit-store__label">책방 누적입고</div>
+                    <div class="unit-store__title">200</div>
+                </div>
+                <div class="unit-store__item">
+                    <div class="unit-store__label">책방 누적판매</div>
+                    <div class="unit-store__title">13</div>
+                </div>
+                <div class="unit-store__item">
+                    <div class="unit-store__label">책방 현재재고</div>
+                    <div class="unit-store__title">7</div>
+                </div>
+            </div>
+            
+            <div class="btn-wrapper">
+                <button class="btn btn--bordered-primary" type="button" onclick="openModal()">회수요청</button><!-- 재고 0일 경우 비활성화 : is-disabled 클래스 추가 -->
+            </div>
+
+            <div class="divider divider--dashed"></div>
+
+            <div class="subheaders js-showhide">
+                <h4 class="subheaders__title">
+                    상품 상세 정보
+                    <i class="icofont-thin-down js-showhide__arrow"></i>
+                </h4>                                        
+            </div>
+            <ul class="prd-info">
+                <li class="prd-info__item">
+                    <div class="prd-info__label">등록계정(출판사)</div>
+                    <div class="prd-info__content">유명훈(mhoo999@naver.com)</div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">굿즈명</div>
+                    <div class="prd-info__content">모래알만 한 진실이라도</div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">분류</div>
+                    <div class="prd-info__content">스티커</div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">크기</div>
+                    <div class="prd-info__content">161 * 186 * 14 mm /398g</div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">ISBN</div>
+                    <div class="prd-info__content">9791197853814(1197853812)</div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">판매가격(원)</div>
+                    <div class="prd-info__content">35,000</div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">입고수량</div>
+                    <div class="prd-info__content">5</div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">샘플수량</div>
+                    <div class="prd-info__content">샘플수량</div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">이미지</div>
+                    <div class="prd-info__content">
+                        <div class="regi-image">
+                            <div class="regi-image__list">
+                                <div class="regi-image__item regi-image__item--rep">
+                                    <img src="assets/img/test_01.png">        
+                                </div>
+                                <div class="regi-image__item">
+                                    <img src="assets/img/test_02.png">        
+                                </div>
+                                <div class="regi-image__item">
+                                    <img src="assets/img/test_03.png">        
+                                </div>
+                                <div class="regi-image__item">
+                                    <img src="assets/img/test_04.png">        
+                                </div>
+                                <div class="regi-image__item">
+                                    <img src="assets/img/test_05.png">        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">해시태그</div>
+                    <div class="prd-info__content">
+                        <div class="hashtag">
+                            <span class="hashtag__item">#포토에세이</span>
+                            <span class="hashtag__item">#반려동물</span>
+                            <span class="hashtag__item">#웰시코기</span>
+                        </div>
+                    </div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">제작구분</div>
+                    <div class="prd-info__content">커넥티드 제작</div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">굿즈 소개</div>
+                    <div class="prd-info__content">
+                        〈TV 동물농장〉의 천재 웰시 코기, 전설의 분리행복견, “집사야, 산책 가자"를 버튼으로 말하는 강아지.
+                    </div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">필요한 사람</div>
+                    <div class="prd-info__content">
+                        〈TV 동물농장〉의 천재 웰시 코기, 전설의 분리행복견, “집사야, 산책 가자"를 버튼으로 말하는 강아지. 수식어부터 범상치 않은 ‘아리'의 첫 포토 에세이가 출간되었다. 아리와 가족들이 처음 만나던 순간부터, 지능보다 감성이 더 발달한 강아지로 성장하는 과정, 장래희망이 ‘남의 집 개’일 정도로 많은 사람과 다양한 경험을 누리는 나날이 솔직한 글과 리얼한 현장 포착 사진들로 담겼다.                        
+                    </div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">작가</div>
+                    <div class="prd-info__content">유명훈</div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">작가 소개</div>
+                    <div class="prd-info__content">
+                        55만 유튜브 구독자가 심쿵한 천재견 아리와 집사의 다정한 일상
+                    </div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">증정용 굿즈</div>
+                    <div class="prd-info__content">
+                        <div class="regi-goods">
+                            <div class="regi-goods__list">
+                                <div class="regi-goods__item">
+                                    <div class="regi-goods__thumb">
+                                        <img src="assets/img/test_01.png">
+                                    </div>
+                                    <div class="regi-goods__content">
+                                        <div class="regi-goods__title">호호와 거난이 액자</div>
+                                        <div class="regi-goods__description">
+                                            <span>증정방안 - </span>
+                                            상품 하나당 한 개씩 증정해주세요 상품 하나당 한 개씩 증정해주세요 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">입고신청책방</div>
+                    <div class="prd-info__content">입고신청책방</div>    
+                </li>
+                <li class="prd-info__item">
+                    <div class="prd-info__label">기타 요청사항</div>
+                    <div class="prd-info__content">기타 요청사항</div>    
+                </li>
+            </ul>
+
+            <div class="divider divider--dashed"></div>
+            
+            <div class="btn-wrapper">
+                <a href="stock_list.html" class="btn-wrapper__link"><i class="icofont-long-arrow-left"></i> 목록으로 돌아가기</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p class="footer__copyright">Copyright © kenektid inc. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <!-- 모달 팝업 : 회수 요청 { -->
+    <transition name="modal">
+        <div class="modal" id="modal">
+            <div class="modal__wrapper">
+                <div class="modal__container modal__container--small">
+                    <button class="modal__close" onclick="closeModal()"><i class="icofont-close-line"></i></button>
+                    <div class="modal__header">
+                        회수 요청
+                    </div>
+                    <div class="modal__body">
+                        <p>재고: 5</p>
+                        <div class="field-quantity">
+                            <div class="field-quantity__button"><i class="icofont-minus"></i></div>
+                            <input type="number" class="field-quantity__input">
+                            <div class="field-quantity__button"><i class="icofont-plus"></i></div>
+                        </div>
+                        <p>N개 회수 요청을 진행하시겠습니까?</p>                    
+                    </div>
+                    <div class="modal__footer">
+                        <button type="submit" class="btn btn--full btn--small btn--bordered-primary">네</button>
+                        <button type="submit" class="btn btn--full btn--small btn--primary">아니오</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </transition>
+    <!-- } 모달 팝업 -->
+
+    <script src="assets/js/function.js"></script>
+</body>
+</html>
