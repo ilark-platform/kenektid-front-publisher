@@ -674,6 +674,18 @@
         background-color: $color-primary;  
       }
     }
+
+    &--refuse {
+      &::before {
+        content: '';
+        @include position(absolute, $top: 25px, $left: 88%);
+        @include size(30px, $height: 2px);
+        background-color: $color-gray-300;
+        z-index: 1;
+        transition: all .3s;
+        transform: rotate(120deg);
+      }  
+    }
   }
 
   &__num {
@@ -712,6 +724,14 @@
     &__step {
       &::after {
         top: 17px;
+      }
+
+      &--refuse {
+        &::before {
+          top: 17px;
+          left: 90%;
+          width: 24px;
+        }  
       }
     }
 
