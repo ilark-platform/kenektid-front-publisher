@@ -96,7 +96,7 @@
       vertical-align: top;
     }
   }
-  
+
   &__input, &__textarea {
     width: 100%;
     border: 1px solid $color-gray-100;
@@ -129,6 +129,13 @@
       background-color: $color-white;
       box-shadow: $box-shadow-input;
     }
+  }
+
+  &__input-date {
+    background-image: url('../img/calendar-outline.svg');
+    background-size: 20px 20px;
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
   }
 
   &__textarea {
@@ -172,6 +179,7 @@
   }
 
   @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
     &--half {
       width: 100%;
     }  
@@ -302,6 +310,7 @@
 /* ------ CUSTOM SELECT ----- */
 .select-dropdown {
   width: 100%;
+  min-width: 124px;
 
   &__inner {
     position: relative;
@@ -309,15 +318,25 @@
     border: 1px solid $color-gray-100;
     background-color: $color-gray-100;
     border-radius: $border-radius; 
+    cursor: pointer;
     z-index: 2;
     transition: all 0.3s;  
 
     &.expanded {
       background-color: $color-white;
       border-color: $color-primary;
+
+      .select-dropdown__arrow {
+        margin-top: 4px;
+        transform: rotateZ(45deg);
+      }
+
+      .select-dropdown__list {
+        max-height: 288px; 
+      }
     }
-    
   }
+
   &__arrow {
     position: absolute;
     right: 20px;
@@ -327,22 +346,17 @@
     border-left: 1px solid $color-gray-500;
     border-top: 1px solid $color-gray-500;
     transform: rotateZ(-135deg);
-    transition-duration: 0.3s;
-    transition-timing-function: cubic-bezier(.59,1.39,.37,1.01);
-
-    /*
-    &.expanded {
-      margin-top: 4px;
-      transform: rotateZ(45deg);
-    }
-    */
+    transition: .2s ease-in;
+    pointer-events: none;
   }
-
+  
   &__label {
-    display: block;
+    display: flex;
+    align-items: center;
     font-size: 1.4rem;
     padding: 1.6rem;
     color: $color-black;
+    margin-bottom: 2px;
   }
   
   &__list {
@@ -350,29 +364,79 @@
     width: 100%;
     font-size: 1.4rem;
     border-radius: $border-radius;  
-    background-color: $color-white;
+    background-color: #575757;
     box-shadow: $box-shadow;
-    overflow: hidden;
+    overflow-y: auto;
     z-index: 2;
+    max-height: 0;
+    transition: .2s ease-in;
+    
+    &::-webkit-scrollbar { width: 6px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb { background: #212121; border-radius: 6px; }
+    &::-webkit-scrollbar-thumb:hover { background: #212121; }
   }
 
   &__item {
-    padding: 1.2rem;
-    color: $color-gray-700;
+    padding: 1.4rem 1.4rem;
+    color: $color-white;
+    border-bottom: 1px dashed #4e4e4e;
     
-    &:hover {
-      background-color: $color-gray-100;
+    &:last-child {
+      border-bottom: none;
     }
-    
+
+    &:hover {
+      background-color: #414141;
+    }    
   }
-  .current {
-    background-color: $color-gray-100;
+
+  &--flat {
+    width: auto;
+    min-width: auto;
+
+    .select-dropdown__inner {
+      height: auto;
+      border: none;
+      background-color: transparent;
+  
+      &.expanded {
+        background-color: transparent;
+      }
+    }
+
+    .select-dropdown__arrow {
+      right: 0;
+      top: 35%;
+    }
+
+    .select-dropdown__label {
+      font-size: 1.8rem;
+      padding: 1rem 1.2rem;
+      padding-right: 2.4rem;
+      height: 40px;
+    }
+
+    .select-dropdown__item {
+      padding: 1rem 1.2rem;
+    }
   }
-  .hidden {
-    visibility: hidden;
-  }
-  .drop_visible {
-    visibility: visible;    
+
+  @include mobile { 
+    /*브라우저 사이즈 767px 이하일때*/
+
+    &--flat {
+      .select-dropdown__arrow {
+        right: 0;
+        top: 30%;
+      }
+  
+      /*
+      .select-dropdown__label {
+        font-size: 1.6rem;
+      }
+      */
+    }    
   }
 }
 
@@ -553,11 +617,10 @@
   }
 
   @include mobile { 
-    /*브라우저 사이즈 1023px 이하일때*/
+    /*브라우저 사이즈 767px 이하일때*/
     &__title {
       font-size: 1.4rem;
-    }
-    
+    }    
   }
 }
 

@@ -148,18 +148,81 @@
                     <button type="button" class="btn btn--small btn--bordered-primary">목록 내려받기</button>
                 </div>
             </div>
-            <div class="condition-tabs">
-                <ul class="condition-tabs__wrapper">
-                    <li class="condition-tabs__item">
-                        <a href="#" class="condition-tabs__link condition-tabs__link--active">전체 3건</a>
-                    </li>
-                    <li class="condition-tabs__item">
-                        <a href="#" class="condition-tabs__link">도서 1건</a>
-                    </li>
-                    <li class="condition-tabs__item">
-                        <a href="#" class="condition-tabs__link">굿즈 2건</a>
-                    </li>
-                </ul>
+            <div class="divider divider--dashed"></div>
+            <div class="l-col l-col--items-center">
+
+                <!-- 월별 선택 시 { -->
+                <div class="condition-group">
+                    <div class="select-dropdown select-dropdown--flat">
+                        <div class="select-dropdown__inner">
+                            <div class="select-dropdown__arrow"></div>
+                            <div class="select-dropdown__label">
+                                <span>월별</span>
+                            </div>
+                            <ul class="select-dropdown__list">
+                                <li class="select-dropdown__item">월별</li>
+                                <li class="select-dropdown__item">직접입력</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="select-dropdown select-dropdown--flat">
+                        <div class="select-dropdown__inner">
+                            <div class="select-dropdown__arrow"></div>
+                            <div class="select-dropdown__label">
+                                <span>2022년</span>
+                            </div>
+                            <ul class="select-dropdown__list">
+                                <li class="select-dropdown__item">2022년</li>
+                                <li class="select-dropdown__item">2021년</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="select-dropdown select-dropdown--flat">
+                        <div class="select-dropdown__inner">
+                            <div class="select-dropdown__arrow"></div>
+                            <div class="select-dropdown__label">
+                                <span>1월</span>
+                            </div>
+                            <ul class="select-dropdown__list">
+                                <li class="select-dropdown__item">1월</li>
+                                <li class="select-dropdown__item">2월</li>
+                                <li class="select-dropdown__item">3월</li>
+                                <li class="select-dropdown__item">4월</li>
+                                <li class="select-dropdown__item">5월</li>
+                                <li class="select-dropdown__item">6월</li>
+                                <li class="select-dropdown__item">7월</li>
+                                <li class="select-dropdown__item">8월</li>
+                                <li class="select-dropdown__item">9월</li>
+                                <li class="select-dropdown__item">10월</li>
+                                <li class="select-dropdown__item">11월</li>
+                                <li class="select-dropdown__item">12월</li>
+                            </ul>
+                        </div>
+                    </div>       
+                </div>
+                <!-- } 월별 선택 시 -->
+                               
+                <!-- 직접입력 선택 시 { -->
+                <div class="condition-group">
+                    <div class="field-group">
+                        <input type="text" class="field-group__input field-group__input-date">
+                    </div>
+                    <span class="input-date-wave"> ~ </span>
+                    <div class="field-group">
+                        <input type="text" class="field-group__input field-group__input-date">
+                    </div>
+                    <button type="button" class="btn-delete"><i class="icofont-close-line"></i></button>
+                </div>
+                <!-- } 직접입력 선택 시 -->
+                
+                <div class="condition-group">
+                    <div class="unit-store">
+                        <div class="unit-store__item">
+                            <div class="unit-store__label">총 판매금액</div>
+                            <div class="unit-store__title">123,000원 </div>
+                        </div>                    
+                    </div>
+                </div>
             </div>
             <div class="restable">
                 <table>

@@ -42,6 +42,10 @@
   margin-top: 2rem;
 }
 
+.account__header .logo__title {
+  font-family: 'Jost', sans-serif;
+}
+
 .account__bottom {
   position: relative;
   display: -webkit-box;

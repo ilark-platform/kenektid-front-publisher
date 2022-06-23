@@ -29,6 +29,10 @@
     & .logo + .account__title {
       margin-top: 2rem;
     }
+
+    .logo__title {
+      font-family: 'Jost', sans-serif; 
+    }
   }
   
   &__bottom {
