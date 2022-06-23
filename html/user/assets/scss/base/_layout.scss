@@ -491,9 +491,9 @@
 /* ------ SUB COMMON ----- */ 
 .container {
   &__inner {
-    max-width: 1080px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 15rem 2rem 7rem;
+    padding: 15rem 4rem 7rem;
   
     @include tablet { 
       /*브라우저 사이즈 1023px 이하일때*/
