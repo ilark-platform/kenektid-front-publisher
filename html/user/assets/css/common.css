@@ -874,9 +874,9 @@ input[type=number] {
 
 /* ------ SUB COMMON ----- */
 .container__inner {
-  max-width: 1080px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 15rem 2rem 7rem;
+  padding: 15rem 4rem 7rem;
 }
 
 @media (max-width: 1023px) {
