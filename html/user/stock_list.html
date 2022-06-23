@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>입고현황</title>
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/icofont.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+
+<body>
+<!-- 전체 페이지 공통으로 사용 (로그인, 회원가입 제외) { -->
+    <header class="header">
+        <div class="header__sidebar-trigger js-sidebar-trigger">
+            <div class="burger burger--menu">
+                <span class="burger__item"></span>
+                <span class="burger__item"></span>
+                <span class="burger__item"></span>
+            </div>
+        </div>        
+        <div class="header__logo">
+            <div class="logo">
+                <a class="logo__link" href="#">
+                    <h1 class="logo__image"><img src="assets/img/logo.png" alt="KENEKTID"></h1>
+                </a>
+                <span class="logo__title">WRITER</span>
+            </div>
+        </div>
+        <div class="header__menu">
+            <nav class="global-nav">
+                <ul class="global-nav__list">
+                    <li class="global-nav__item">
+                        <a href="restock_list.html" class="global-nav__link">
+                            <em class="badge">13</em>
+                            <i class="icofont-alarm"></i>
+                            <span class="global-nav__title">재입고요청</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item collapse">
+                        <div class="global-nav__link collapse__link">
+                            <i class="icofont-user-alt-7"></i>
+                            <span class="global-nav__title">유명훈</span>
+                            <i class="icofont-thin-down collapse__arrow"></i>
+                        </div>
+                        <ul class="collapse__list">
+                            <li class="collapse__item">
+                                <a href="mypage_publisher.html" class="collapse__sublink">회원정보수정</a>
+                            </li>
+                            <li class="collapse__item">
+                                <a href="#" class="collapse__sublink">로그아웃</a>
+                            </li>
+                        </ul>                    
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dim-layer"></div>
+
+    <div class="sidebar">
+        <div class="sidebar__close js-sidebar-close">
+            <div class="burger burger--close">
+                <span class="burger__item"></span>
+                <span class="burger__item"></span>
+            </div>
+        </div>
+        <div class="sidebar__wrapper">
+            <div class="sidebar__header">
+                <div class="logo">
+                    <div class="logo__image"><img src="assets/img/logo.png" alt="KENEKTID"></div>
+                    <span class="logo__title">WRITER</span>
+                </div>
+            </div>
+            <nav class="global-nav">
+                <ul class="global-nav__list">
+                    <li class="global-nav__item">
+                        <a href="stock_list.html" class="global-nav__link">
+                            <i class="icofont-book-alt"></i>    
+                            <span class="global-nav__title">입고현황</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item">
+                        <a href="app_list.html" class="global-nav__link">
+                            <i class="icofont-search-document"></i>
+                            <span class="global-nav__title">신청내역</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item">
+                        <a href="sales_list.html" class="global-nav__link">
+                            <i class="icofont-chart-bar-graph"></i>
+                            <span class="global-nav__title">판매내역</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item">
+                        <a href="restock_list.html" class="global-nav__link">
+                            <em class="badge">3</em>
+                            <i class="icofont-alarm"></i>
+                            <span class="global-nav__title">재입고 요청현황</span>
+                        </a>
+                    </li>
+                    <li class="global-nav__item collapse">
+                        <div class="global-nav__link collapse__link">
+                            <i class="icofont-ui-copy"></i>
+                            <span class="global-nav__title">입고신청</span>
+                            <i class="icofont-thin-down collapse__arrow"></i>
+                        </div>
+                        <ul class="collapse__list">
+                            <li class="collapse__item">
+                                <a href="stock_books.html" class="collapse__sublink">도서입고</a>
+                            </li>
+                            <li class="collapse__item">
+                                <a href="stock_goods.html" class="collapse__sublink">굿즈입고</a>
+                            </li>
+                        </ul>                    
+                    </li>
+                </ul>    
+            </nav>
+            <div class="sidebar__footer">
+                <div class="switcher-language">
+                    <i class="icofont-globe"></i>
+                    <a href="#" class="switcher-language__link switcher-language__link--selected">KOR</a>
+                    <a href="#" class="switcher-language__link">ENG</a>        
+                </div>
+            </div>            
+        </div>
+    </div>
+    <!-- } 전체 페이지 공통으로 사용 (로그인, 회원가입 제외) -->
+
+    <div class="container">
+        <div class="container__inner">
+            <div class="tabs">
+                <div class="tabs__menu">
+                    <a href="stock_list.html" class="tabs__link tabs__link--active">
+                        <span class="tabs__title">입고현황</span>
+                    </a>
+                    <a href="app_list.html" class="tabs__link">
+                        <span class="tabs__title">신청내역</span>
+                    </a>
+                    <a href="sales_list.html" class="tabs__link">
+                        <span class="tabs__title">판매내역</span>
+                    </a>
+                </div>
+                <div class="tabs__button">
+                    <a href="restock_list.html" class="btn btn--small btn--bordered-primary">재입고요청 (N)</a>
+                    <button type="button" class="btn btn--small btn--bordered-primary">목록 내려받기</button>
+                </div>
+            </div>
+            <div class="condition-tabs">
+                <ul class="condition-tabs__wrapper">
+                    <li class="condition-tabs__item">
+                        <a href="#" class="condition-tabs__link condition-tabs__link--active">전체 3건</a>
+                    </li>
+                    <li class="condition-tabs__item">
+                        <a href="#" class="condition-tabs__link">도서 1건</a>
+                    </li>
+                    <li class="condition-tabs__item">
+                        <a href="#" class="condition-tabs__link">굿즈 2건</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="restable">
+                <table>
+                    <caption>입고현황</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">상품유형</th>
+                            <th scope="col">장르/분류</th>
+                            <th scope="col">상품명</th>
+                            <th scope="col">작가</th>
+                            <th scope="col">출판사</th>
+                            <th scope="col">판매가격</th>
+                            <th scope="col">누적입고</th>
+                            <th scope="col">누적판매</th>
+                            <th scope="col">현재재고</th>
+                            <th scope="col">재입고요청</th>
+                            <th scope="col">판매책방</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr tabindex="0">
+                            <td data-label="상품유형" class="mo-hide">도서</td>
+                            <td data-label="장르/분류" class="mo-hide">교양</td>
+                            <td data-label="상품명"><a href="stock_detail.html">왜일하는가</a></td>
+                            <td data-label="작가" class="mo-hide">유명훈</td>
+                            <td data-label="출판사" class="mo-hide">북랩</td>
+                            <td data-label="판매가격" class="mo-hide">12,000</td>
+                            <td data-label="누적입고">5</td>
+                            <td data-label="누적판매">0</td>
+                            <td data-label="현재재고">5</td>
+                            <td data-label="재입고요청횟수" class="mo-hide">1</td>
+                            <td data-label="판매책방" class="mo-hide">커넥티드</td>
+                        </tr>
+                        <tr tabindex="0">
+                            <td data-label="상품유형" class="mo-hide">굿즈</td>
+                            <td data-label="장르/분류" class="mo-hide">포스터</td>
+                            <td data-label="상품명"><a href="stock_detail.html">캥거루클럽 빈티지</a></td>
+                            <td data-label="작가" class="mo-hide">유명훈</td>
+                            <td data-label="출판사" class="mo-hide">북랩</td>
+                            <td data-label="판매가격" class="mo-hide">12,000</td>
+                            <td data-label="누적입고">5</td>
+                            <td data-label="누적판매">0</td>
+                            <td data-label="현재재고">5</td>
+                            <td data-label="재입고요청횟수" class="mo-hide">1</td>
+                            <td data-label="판매책방" class="mo-hide">커넥티드</td>
+                        </tr>
+                        <tr tabindex="0">
+                            <td data-label="상품유형" class="mo-hide">도서</td>
+                            <td data-label="장르/분류" class="mo-hide">교양</td>
+                            <td data-label="상품명"><a href="stock_detail.html">모래알만 한 진실이라도</a></td>
+                            <td data-label="작가" class="mo-hide">유명훈</td>
+                            <td data-label="출판사" class="mo-hide">북랩</td>
+                            <td data-label="판매가격" class="mo-hide">12,000</td>
+                            <td data-label="누적입고">5</td>
+                            <td data-label="누적판매">0</td>
+                            <td data-label="현재재고">5</td>
+                            <td data-label="재입고요청횟수" class="mo-hide">1</td>
+                            <td data-label="판매책방" class="mo-hide">커넥티드</td>
+                        </tr>                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <ul class="pagination__list">
+                    <li class="pagination__item">
+                        <a href="#" class="pagination__link"><i class="icofont-rounded-left"></i></a>
+                    </li>
+                    <li class="pagination__item">
+                        <a href="#" class="pagination__link pagination__link--active">1</a>
+                    </li>
+                    <li class="pagination__item">
+                        <a href="#" class="pagination__link">2</a>
+                    </li>
+                    <li class="pagination__item">
+                        <a href="#" class="pagination__link">3</a>
+                    </li>
+                    <li class="pagination__item">
+                        <a href="#" class="pagination__link"><i class="icofont-rounded-right"></i></a>
+                    </li>
+                </ul>    
+            </div>
+                
+            
+            
+            <div class="btn-wrapper">
+                <a href="#" class="btn-wrapper__link"><i class="icofont-long-arrow-left"></i> 이전으로 돌아가기</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p class="footer__copyright">Copyright © kenektid inc. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script src="assets/js/function.js"></script>
+</body>
+</html>
