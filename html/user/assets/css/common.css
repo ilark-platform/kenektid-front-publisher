@@ -2325,32 +2325,29 @@ input[type=number] {
 
 .field-group .field-address {
   position: relative;
-  margin-bottom: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .field-group .field-address .field-group__input {
-  padding-right: 54px;
+  margin-left: 6px;
+  width: calc(100% - 98px);
 }
 
 .field-group .field-address .btn {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  bottom: auto;
-  left: auto;
-  border: none;
-  background: transparent;
-  font-size: 1.8rem;
-  width: 54px;
-  height: 54px;
+  font-size: 1.4rem;
+  width: 98px;
+  height: 50px;
+  padding: 0;
   margin-top: 0;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  z-index: 2;
 }
 
-.field-group .field-address .btn i {
-  padding-left: 0;
+.field-group .field-address ~ .field-group__input {
+  margin-top: 6px;
 }
 
 @media (max-width: 767px) {
