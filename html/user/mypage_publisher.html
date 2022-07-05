@@ -174,11 +174,15 @@
                             </div>
                             <div class="field-group">
                                 <span class="field-group__label">주소지<em class="icon-required">*</em></span>
+                                <!-- 22-07-05 주소 검색 수정 { -->
                                 <div class="field-address">
-                                    <div class="field-group__input">서울 금천구 벚꽃로 298, 대륭포스트타워 6차</div>
-                                    <button type="button" class="btn btn btn--bordered-primary"><i class="icofont-search-1"></i></button>
+                                    <button type="button" class="btn btn--small btn--bordered-primary">주소찾기</button>
+                                    <input type="text" name="address2" class="field-group__input field-group__input--disabled" value="15858" disabled>
                                 </div>
-                                <input type="text" name="phone" class="field-group__input" value="1613호" placeholder="나머지 주소를 입력해주세요" autocomplete="off" required>
+                                <input type="text" name="address2" class="field-group__input field-group__input--disabled" value="서울특별시 중구 을지로 20길 24-13" disabled>
+                                <input type="text" name="address3" class="field-group__input" placeholder="나머지 주소를 입력해주세요" autocomplete="off" required>
+                                <span class="field-group__help field-group__help--error">주소지를 입력해주세요.</span>
+                                <!-- } 주소 검색 후 -->
                             </div>
                             <div class="field-group">
                                 <label for="homepage" class="field-group__label">홈페이지/SNS</label>
