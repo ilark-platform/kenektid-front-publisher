@@ -1029,7 +1029,7 @@ input[type=number] {
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
-          justify-content: end;
+          justify-content: flex-end;
   width: 100%;
   margin-top: 3rem;
 }
@@ -2493,6 +2493,97 @@ input[type=number] {
   border-color: #ffffff;
 }
 
+/* ------ CUSTOM RADIO ----- */
+.radiobox {
+  position: relative;
+  margin-bottom: 1.4rem;
+}
+
+.radiobox__wrapper {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 34px;
+  height: 24px;
+}
+
+.radiobox__title {
+  display: inline-block;
+  font-size: 1.3rem;
+  color: #707070;
+  vertical-align: middle;
+}
+
+.radiobox__title--large {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #1b1b1b;
+}
+
+.radiobox--hidden {
+  display: none;
+}
+
+.radiobox--hidden:checked {
+  display: block;
+}
+
+.radiobox--show {
+  position: absolute;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+}
+
+.radiobox--show::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 14px;
+  height: 14px;
+  background-color: transparent;
+  border-radius: 100%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.radiobox--hidden:checked ~ .radiobox--show:after {
+  display: block;
+}
+
+.radiobox--primary:checked ~ .radiobox--show {
+  border-color: #0074c9;
+}
+
+.radiobox--primary:checked ~ .radiobox--show::after {
+  background-color: #0074c9;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.radiobox--primary:disabled ~ .radiobox--show {
+  background-color: #e2e2e2;
+  cursor: not-allowed;
+}
+
+.radiobox--primary:checked:disabled ~ .radiobox--show {
+  background-color: #0074c9;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.radiobox--primary:checked:disabled ~ .radiobox--show::after {
+  border-color: #ffffff;
+}
+
 /* ------ CUSTOM SELECT ----- */
 .select-dropdown {
   width: 100%;
@@ -3100,6 +3191,12 @@ input[type=number] {
 
 .modal__footer .btn + .btn {
   margin-left: 6px;
+}
+
+.modal__footer--justify-end {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .modal-enter, .modal-leave-active {
