@@ -145,7 +145,7 @@
                     </a>
                 </div>
                 <div class="tabs__button">
-                    <button type="button" class="btn btn--small btn--bordered-primary">목록 내려받기</button>
+                    <button type="button" class="btn btn--small btn--bordered-primary" onclick="openModal()">목록 내려받기</button>
                 </div>
             </div>
             <div class="divider divider--dashed"></div>
@@ -308,6 +308,48 @@
     <footer class="footer">
         <p class="footer__copyright">Copyright © kenektid inc. ALL RIGHTS RESERVED.</p>
     </footer>
+
+    <!-- 모달 팝업 : 목록 내려받기 { -->
+    <transition name="modal">
+        <div class="modal" id="modal">
+            <div class="modal__wrapper">
+                <div class="modal__container">
+                    <button class="modal__close" onclick="closeModal()"><i class="icofont-close-line"></i></button>
+                    <div class="modal__header">
+                        목록 내려받기
+                    </div>
+                    <div class="modal__body modal__body--text-left">
+                        <div class="radiobox">
+                            <label class="radiobox__wrapper">
+                                <span class="radiobox__title">현재 페이지</span>
+                                <input type="radio" name="excel-slt" class="radiobox--hidden radiobox--primary">
+                                <div class="radiobox--show"></div>
+                            </label>
+                        </div>
+                        <div class="radiobox">
+                            <label class="radiobox__wrapper">
+                                <span class="radiobox__title">전체 목록</span>
+                                <input type="radio" name="excel-slt" class="radiobox--hidden radiobox--primary">
+                                <div class="radiobox--show"></div>
+                            </label>
+                        </div>
+                        <div class="radiobox">
+                            <label class="radiobox__wrapper">
+                                <span class="radiobox__title">검색된 상품 전체</span>
+                                <input type="radio" name="excel-slt" class="radiobox--hidden radiobox--primary">
+                                <div class="radiobox--show"></div>
+                            </label>
+                        </div>                 
+                    </div>
+                    <div class="modal__footer modal__footer--justify-end">
+                        <button type="submit" class="btn btn--small btn--bordered-primary" onclick="closeModal()">취소</button>
+                        <button type="submit" class="btn btn--small btn--primary">내려받기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </transition>
+    <!-- } 모달 팝업 -->
 
     <script src="assets/js/function.js"></script>
 </body>
