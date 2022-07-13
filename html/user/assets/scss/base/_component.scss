@@ -304,6 +304,92 @@
   }
 }
 
+/* ------ CUSTOM RADIO ----- */
+.radiobox {
+  position: relative;
+  margin-bottom: 1.4rem;
+
+  &__wrapper {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    padding-left: 34px;
+    height: 24px;
+  }
+
+  &__title {
+    display: inline-block;
+    font-size: 1.3rem;
+    color: $color-gray-700;
+    vertical-align: middle;
+
+    &--large {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: $color-black;
+    }
+  }
+  
+  &--hidden {
+    display: none;
+    
+    &:checked {
+      display: block;
+    }
+  }
+  
+  &--show {
+    @include position(absolute, $top: 0, $left: 0);
+    height: 22px;
+    width: 22px;
+    border: 1px solid $color-gray-400;
+    border-radius: 50%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 3px;
+      width: 14px;
+      height: 14px;
+      background-color: transparent;
+      border-radius: 100%;
+      transform: scale(0);
+      transition: all 0.2s ease;
+    }  
+  }
+
+  &--hidden:checked ~ &--show:after {
+    display: block;
+  }
+
+  &--primary {
+    &:checked ~ .radiobox--show {
+      border-color: $color-primary;
+
+      &::after {
+        background-color: $color-primary;
+        transform: scale(1);
+      }
+    }
+    &:disabled ~ .radiobox--show {
+      background-color: $color-gray-200;
+      //border: 1px solid $grey-100;
+      cursor: not-allowed;
+    }
+    &:checked:disabled ~ .radiobox--show {
+      background-color: $color-primary;
+      opacity: 0.6;
+      cursor: not-allowed;
+
+      &::after {
+        border-color: $color-white; 
+      }
+    }
+    
+  }
+}
+
 
 /* ------ CUSTOM SELECT ----- */
 .select-dropdown {
@@ -764,6 +850,10 @@
     
     .btn + .btn {
       margin-left: 6px;
+    }
+
+    &--justify-end {
+      justify-content: flex-end;
     }
     
   }
